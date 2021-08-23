@@ -70,7 +70,7 @@ public class BulkRobot extends Robot {
                     delivery.deliver(this, deliveryItem, "");
                     deliveryItem = null;
                     deliveryCounter++;
-                   if (deliveryCounter > 6) {  // Implies a simulation bug
+                   if (deliveryCounter > INDIVIDUAL_MAX_TUBE_SIZE) {  // Implies a simulation bug
                    	throw new ExcessiveDeliveryException();
                    }
                     /** Check if want to return, i.e. if there is no item in the tube*/

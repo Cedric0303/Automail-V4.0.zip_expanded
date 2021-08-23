@@ -75,9 +75,11 @@ public class MailPool {
 			}
 			else if (robot.getClass() == BulkRobot.class) {
 				try {
-					while (pool.size() > 0) {
+					int k = 0;
+					while (pool.size() > 0 && k < 5) {
 						robot.addToTube(j.next().mailItem);
 						j.remove();
+						k++;
 					}
 					robot.dispatch(); // send the robot off if it has any items to deliver
 					i.remove();       // remove from mailPool queue
