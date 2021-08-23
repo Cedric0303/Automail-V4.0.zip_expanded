@@ -96,7 +96,7 @@ public class Simulation {
         System.out.println(wifiModem.Turnoff());
     }
 
-    public static void printResults(){
+    public static void printResults() {
         System.out.println("T: "+Clock.Time()+" | Simulation complete!");
         System.out.println("Final Delivery time: "+Clock.Time());
         System.out.printf("Delay: %.2f%n", iMailDelivery.getTotal_delay());

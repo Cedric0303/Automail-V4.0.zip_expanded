@@ -25,7 +25,7 @@ public class MailItem {
      * @param arrival_time the time that the mail arrived
      * @param weight the weight of this mail item
      */
-    public MailItem(int dest_floor, int arrival_time, int weight){
+    public MailItem(int dest_floor, int arrival_time, int weight) {
         this.destination_floor = dest_floor;
         this.id = String.valueOf(hashCode());
         this.arrival_time = arrival_time;
@@ -33,7 +33,7 @@ public class MailItem {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return String.format("Mail Item:: ID: %6s | Arrival: %4d | Destination: %2d | Weight: %4d", id, arrival_time, destination_floor, weight);
     }
 
@@ -57,7 +57,7 @@ public class MailItem {
      *
      * @return the arrival time of the mail item
      */
-    public int getArrivalTime(){
+    public int getArrivalTime() {
         return arrival_time;
     }
 
@@ -65,7 +65,7 @@ public class MailItem {
     *
     * @return the weight of the mail item
     */
-   public int getWeight(){
+   public int getWeight() {
        return weight;
    }
    

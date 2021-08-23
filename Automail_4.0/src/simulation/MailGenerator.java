@@ -31,8 +31,8 @@ public class MailGenerator {
      * @param mailPool where mail items go on arrival
      * @param seed random seed for generating mail
      */
-    public MailGenerator(int mailToCreate, int mailMaxWeight, MailPool mailPool, HashMap<Boolean,Integer> seed){
-        if(seed.containsKey(true)){
+    public MailGenerator(int mailToCreate, int mailMaxWeight, MailPool mailPool, HashMap<Boolean,Integer> seed) {
+        if(seed.containsKey(true)) {
         	this.random = new Random((long) seed.get(true));
         }
         else{
@@ -51,7 +51,7 @@ public class MailGenerator {
     /**
      * @return a new mail item that needs to be delivered
      */
-    private MailItem generateMail(){
+    private MailItem generateMail() {
     	MailItem newMailItem;
         int destinationFloor = generateDestinationFloor();
         int priorityLevel = generatePriorityLevel();
@@ -64,14 +64,14 @@ public class MailGenerator {
     /**
      * @return a destination floor between the ranges of GROUND_FLOOR to FLOOR
      */
-    private int generateDestinationFloor(){
+    private int generateDestinationFloor() {
         return Building.getInstance().getLowestFloor() + random.nextInt(Building.getInstance().getnFloors());
     }
 
     /**
      * @return a random weight
      */
-    private int generateWeight(){
+    private int generateWeight() {
     	final double mean = 200.0; // grams for normal item
     	final double stddev = 1000.0; // grams
     	double base = random.nextGaussian();
@@ -83,14 +83,14 @@ public class MailGenerator {
     /**
      * @return a random arrival time before the last delivery time
      */
-    private int generateArrivalTime(){
+    private int generateArrivalTime() {
         return 1 + random.nextInt(Clock.MAIL_RECEVING_LENGTH);
     }
 
     /**
      * @return a random priority level selected from 1 - 100
      */
-    private int generatePriorityLevel(){
+    private int generatePriorityLevel() {
         return 10*(1 + random.nextInt(10));
     }
 
@@ -98,12 +98,12 @@ public class MailGenerator {
      * This class initializes all mails and sets their corresponding values,
      * All generated mails will be saved in allMail
      */
-    public void generateAllMail(){
-        while(!complete){
+    public void generateAllMail() {
+        while(!complete) {
             MailItem newMail =  generateMail();
             int timeToDeliver = newMail.getArrivalTime();
             /** Check if key exists for this time **/
-            if(allMail.containsKey(timeToDeliver)){
+            if(allMail.containsKey(timeToDeliver)) {
                 /** Add to existing array */
                 allMail.get(timeToDeliver).add(newMail);
             }
@@ -119,7 +119,7 @@ public class MailGenerator {
             mailCreated++;
 
             /** Once we have satisfied the amount of mail to create, we're done!*/
-            if(mailCreated == MAIL_TO_CREATE){
+            if(mailCreated == MAIL_TO_CREATE) {
                 complete = true;
             }
         }
@@ -130,10 +130,10 @@ public class MailGenerator {
      * Given the clock time, put the generated mails into the mailPool.
      * So that the robot will can pick up the mails from the pool.
      */
-    public void addToMailPool(){
+    public void addToMailPool() {
     	// Check if there are any mail to create
-        if(this.allMail.containsKey(Clock.Time())){
-            for(MailItem mailItem : allMail.get(Clock.Time())){
+        if(this.allMail.containsKey(Clock.Time())) {
+            for(MailItem mailItem : allMail.get(Clock.Time())) {
                 System.out.printf("T: %3d > new addToPool [%s]%n", Clock.Time(), mailItem.toString());
                 mailPool.addToPool(mailItem);
             }

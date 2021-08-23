@@ -17,7 +17,7 @@ public class MailPool {
 	private LinkedList<Item> pool;
 	private LinkedList<Robot> robots;
 
-	public MailPool(){
+	public MailPool() {
 		// Start empty
 		pool = new LinkedList<Item>();
 		robots = new LinkedList<Robot>();
@@ -49,18 +49,42 @@ public class MailPool {
 		// System.out.printf("P: %3d%n", pool.size());
 		ListIterator<Item> j = pool.listIterator();
 		if (pool.size() > 0) {
-			try {
-			robot.addToHand(j.next().mailItem); // hand first as we want higher priority delivered first
-			j.remove();
-			if (pool.size() > 0) {
-				robot.addToTube(j.next().mailItem);
-				j.remove();
+			if (robot.getClass() == RegRobot.class) {
+				try {
+					robot.addToHand(j.next().mailItem); // hand first as we want higher priority delivered first
+					j.remove();
+					if (pool.size() > 0) {
+						robot.addToTube(j.next().mailItem);
+						j.remove();
+					}
+					robot.dispatch(); // send the robot off if it has any items to deliver
+					i.remove();       // remove from mailPool queue
+					} catch (Exception e) { 
+			            throw e; 
+		        } 
 			}
-			robot.dispatch(); // send the robot off if it has any items to deliver
-			i.remove();       // remove from mailPool queue
-			} catch (Exception e) { 
-	            throw e; 
-	        } 
+			else if (robot.getClass() == FastRobot.class) {
+				try {
+					robot.addToHand(j.next().mailItem); // hand first as we want higher priority delivered first
+					j.remove();       // remove from mailPool queue
+					robot.dispatch();
+					i.remove();
+				} catch (Exception e) { 
+					throw e; 
+				} 
+			}
+			else if (robot.getClass() == BulkRobot.class) {
+				try {
+					while (pool.size() > 0) {
+						robot.addToTube(j.next().mailItem);
+						j.remove();
+					}
+					robot.dispatch(); // send the robot off if it has any items to deliver
+					i.remove();       // remove from mailPool queue
+					} catch (Exception e) { 
+			            throw e; 
+			        } 
+			}
 		}
 	}
 
