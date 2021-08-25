@@ -4,6 +4,7 @@ import exceptions.ExcessiveDeliveryException;
 import exceptions.ItemTooHeavyException;
 import simulation.Clock;
 import simulation.IMailDelivery;
+import util.Configuration;
 
 public class RegRobot extends Robot {
 		
@@ -19,6 +20,10 @@ public class RegRobot extends Robot {
     private MailItem tube = null;
     
     private int deliveryCounter;
+    
+    private double rServiceFee;
+    private ServiceFee serviceFee;
+    private Configuration configuration = Configuration.getInstance();
 
 	public RegRobot(IMailDelivery delivery, MailPool mailPool, int number) {
 		super();
@@ -61,6 +66,11 @@ public class RegRobot extends Robot {
     		case DELIVERING:
     			if(current_floor == destination_floor) { // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
+    				
+    				//get service fee
+                    serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+                    rServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+    				
                     delivery.deliver(this, deliveryItem, "");
                     deliveryItem = null;
                     deliveryCounter++;
@@ -140,5 +150,12 @@ public class RegRobot extends Robot {
 		assert(tube == null);
 		tube = mailItem;
 		if (tube.weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
+	}
+
+	
+	public String additionalLog() {
+		return String.format("  | Service Fee:  %.2f| Maintenance:  | Avg. Operating Time:   | Total Charge:   ",
+				rServiceFee);
+		
 	}
 }

@@ -4,6 +4,7 @@ import exceptions.ExcessiveDeliveryException;
 import exceptions.ItemTooHeavyException;
 import simulation.Clock;
 import simulation.IMailDelivery;
+import util.Configuration;
 
 public class FastRobot extends Robot {
 
@@ -17,9 +18,14 @@ public class FastRobot extends Robot {
     private MailPool mailPool;
     private boolean receivedDispatch;
     
+    
     private MailItem deliveryItem = null;
     
     private int deliveryCounter;
+    
+    private double fServiceFee;
+    private ServiceFee serviceFee;
+    private Configuration configuration = Configuration.getInstance();
     
 	public FastRobot(IMailDelivery delivery, MailPool mailPool, int number) {
 		super();
@@ -62,6 +68,11 @@ public class FastRobot extends Robot {
     		case DELIVERING:
     			if(current_floor == destination_floor) { // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
+    				
+    				//get service fee
+                    serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+                    fServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+                    
                     delivery.deliver(this, deliveryItem, "");
                     deliveryItem = null;
                     deliveryCounter++;
@@ -134,5 +145,12 @@ public class FastRobot extends Robot {
 		if (deliveryItem.weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
 	}
 	public void addToTube(MailItem mailItem) {
+	}
+
+	
+	public String additionalLog() {
+		return String.format("  | Service Fee:  %.2f| Maintenance:  | Avg. Operating Time:   | Total Charge:   ", 
+				fServiceFee);
+		
 	}
 }

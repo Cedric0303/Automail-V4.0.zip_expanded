@@ -6,6 +6,7 @@ import exceptions.ExcessiveDeliveryException;
 import exceptions.ItemTooHeavyException;
 import simulation.Clock;
 import simulation.IMailDelivery;
+import util.Configuration;
 
 public class BulkRobot extends Robot {
 
@@ -23,6 +24,10 @@ public class BulkRobot extends Robot {
     private Stack<MailItem> tube = null;
     
     private int deliveryCounter;
+    
+    private double bServiceFee;
+    private ServiceFee serviceFee;
+    private Configuration configuration = Configuration.getInstance();
     
 	public BulkRobot(IMailDelivery delivery, MailPool mailPool, int number) {
 		super();
@@ -67,9 +72,17 @@ public class BulkRobot extends Robot {
     		case DELIVERING:
     			if(current_floor == destination_floor) { // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
+    				
+    				//get service fee
+                    serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+                    	
                     delivery.deliver(this, deliveryItem, "");
                     deliveryItem = null;
                     deliveryCounter++;
+                    
+                    bServiceFee = serviceFee.retrieveServiceFee(destination_floor) * deliveryCounter;
+                    
+                    
                    if (deliveryCounter > INDIVIDUAL_MAX_TUBE_SIZE) {  // Implies a simulation bug
                    	throw new ExcessiveDeliveryException();
                    }
@@ -142,5 +155,12 @@ public class BulkRobot extends Robot {
 		assert(tube.size() < INDIVIDUAL_MAX_TUBE_SIZE);
 		tube.add(mailItem);
 		if (tube.peek().weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
+	}
+	
+	
+	public String additionalLog() {
+		return String.format("  | Service Fee:  %.2f| Maintenance:  | Avg. Operating Time:   | Total Charge:   ", 
+				bServiceFee);
+		
 	}
 }

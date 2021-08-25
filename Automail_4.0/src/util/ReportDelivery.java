@@ -25,6 +25,7 @@ public class ReportDelivery implements IMailDelivery {
     /** Confirm the delivery and calculate the total score */
     @Override
     public void deliver(Robot robot, MailItem deliveryItem, String additionalLog ) {
+    	additionalLog = robot.additionalLog();
         if(!deliveredItems.contains(deliveryItem))
         {
             deliveredItems.add(deliveryItem);
