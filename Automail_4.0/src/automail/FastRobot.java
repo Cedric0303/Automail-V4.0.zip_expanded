@@ -9,8 +9,13 @@ import util.Configuration;
 public class FastRobot extends Robot {
 
 	private static final int INDIVIDUAL_MAX_MOVE_SPEED = 3;
-	
-    private IMailDelivery delivery;
+	private static final double F_BASE_RATE = 0.05;
+	private static int unitCounter;
+	private static double maintainFee;
+	private static int num_FR;
+
+
+	private IMailDelivery delivery;
     private final String id;
     private RobotState current_state;
     private int current_floor;
@@ -36,6 +41,7 @@ public class FastRobot extends Robot {
         this.mailPool = mailPool;
         this.receivedDispatch = false;
         this.deliveryCounter = 0;
+		FastRobot.num_FR ++;
 	}
 	
 	public void dispatch() {
@@ -110,6 +116,7 @@ public class FastRobot extends Robot {
         } else {
     		current_floor -= INDIVIDUAL_MAX_MOVE_SPEED;
         }
+		FastRobot.addCounter();
     }
     
     public String getIdTube() {
@@ -147,10 +154,37 @@ public class FastRobot extends Robot {
 	public void addToTube(MailItem mailItem) {
 	}
 
-	
+	public static int getUnitCounter() {
+		return unitCounter;
+	}
+
+	public static void addCounter() {
+		FastRobot.unitCounter++;
+	}
+
+	public static int getNum_FR() {
+		return num_FR;
+	}
+
+	public static double cal_Avg_time() {
+		double avgtime;
+		avgtime = FastRobot.getUnitCounter() / FastRobot.getNum_FR();
+		return avgtime;
+	}
+	public static double getMaintainFee() {
+		FastRobot.maintainFee = FastRobot.cal_Avg_time() * F_BASE_RATE ;
+		return maintainFee;
+	}
+
 	public String additionalLog() {
-		return String.format("  | Service Fee:  %.2f| Maintenance:  | Avg. Operating Time:   | Total Charge:   ", 
-				fServiceFee);
-		
+		boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
+		double total = fServiceFee + FastRobot.getMaintainFee();
+		if (feeCharging) {
+			return String.format(
+					"  | Service Fee:  %.2f| Maintenance:  %.2f| Avg. Operating Time:  %.2f | Total Charge:  %.2f ",
+					fServiceFee, FastRobot.getMaintainFee(), FastRobot.cal_Avg_time(), total);
+		}
+		else
+			return String.format("");
 	}
 }

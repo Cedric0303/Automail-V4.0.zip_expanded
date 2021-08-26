@@ -7,6 +7,8 @@ import simulation.IMailDelivery;
 import util.Configuration;
 
 public class RegRobot extends Robot {
+
+    private static final double R_BASE_RATE = 0.025;
 		
     private IMailDelivery delivery;
     private final String id;
@@ -15,6 +17,11 @@ public class RegRobot extends Robot {
     private int destination_floor;
     private MailPool mailPool;
     private boolean receivedDispatch;
+
+
+    private static int unitCounter = 0;
+    private static double maintainFee =0;
+    private static int num_RR;
     
     private MailItem deliveryItem = null;
     private MailItem tube = null;
@@ -34,6 +41,7 @@ public class RegRobot extends Robot {
         this.mailPool = mailPool;
         this.receivedDispatch = false;
         this.deliveryCounter = 0;
+        RegRobot.num_RR++;
 	}
 	
 	public void dispatch() {
@@ -111,6 +119,7 @@ public class RegRobot extends Robot {
         } else {
             current_floor--;
         }
+        RegRobot.addCounter();
     }
     
     public String getIdTube() {
@@ -152,10 +161,38 @@ public class RegRobot extends Robot {
 		if (tube.weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
 	}
 
+    public static int getUnitCounter() {
+        return unitCounter;
+    }
+
+    public static void addCounter() {
+        RegRobot.unitCounter++;
+    }
+
+    public static int getNum_RR() {
+        return num_RR;
+    }
+
+    public static double cal_Avg_time() {
+        double avgtime;
+        avgtime = RegRobot.getUnitCounter() / RegRobot.getNum_RR();
+        return avgtime;
+    }
+    public static double getMaintainFee() {
+        RegRobot.maintainFee = RegRobot.cal_Avg_time() * R_BASE_RATE ;
+        return maintainFee;
+    }
 	
-	public String additionalLog() {
-		return String.format("  | Service Fee:  %.2f| Maintenance:  | Avg. Operating Time:   | Total Charge:   ",
-				rServiceFee);
+    public String additionalLog() {
+        boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
+        double total = rServiceFee + RegRobot.getMaintainFee();
+        if (feeCharging) {
+            return String.format(
+                    "  | Service Fee:  %.2f| Maintenance: %.2f | Avg. Operating Time: %.2f  | Total Charge: %.2f ",
+                    rServiceFee, RegRobot.getMaintainFee(), RegRobot.cal_Avg_time(), total);
+        }
+        else
+            return String.format("");
 		
 	}
 }

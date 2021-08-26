@@ -11,7 +11,14 @@ import util.Configuration;
 public class BulkRobot extends Robot {
 
 	private static final int INDIVIDUAL_MAX_TUBE_SIZE = 5;
-	
+
+    private static final double B_BASE_RATE = 0.01;
+    private static int unitCounter = 0;
+    private static double maintainFee =0;
+    private static int num_BR = 0;
+
+
+
 	private IMailDelivery delivery;
     private final String id;
     private RobotState current_state;
@@ -39,6 +46,7 @@ public class BulkRobot extends Robot {
         this.receivedDispatch = false;
         this.tube = new Stack<MailItem>();
         this.deliveryCounter = 0;
+        BulkRobot.num_BR++;
 	}
 
 	public void dispatch() {
@@ -114,6 +122,7 @@ public class BulkRobot extends Robot {
      * @param destination the floor towards which the robot is moving
      */
     void moveTowards(int destination) {
+        BulkRobot.addCounter();
         if(current_floor < destination) {
             current_floor++;
         } else {
@@ -156,11 +165,39 @@ public class BulkRobot extends Robot {
 		tube.add(mailItem);
 		if (tube.peek().weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
 	}
-	
-	
-	public String additionalLog() {
-		return String.format("  | Service Fee:  %.2f| Maintenance:  | Avg. Operating Time:   | Total Charge:   ", 
-				bServiceFee);
-		
+
+    public static int getUnitCounter() {
+        return unitCounter;
+    }
+
+    public static void addCounter() {
+        BulkRobot.unitCounter++;
+    }
+
+    public static int getNum_BR() {
+        return num_BR;
+    }
+
+    public static double cal_Avg_time() {
+        double avgtime;
+        avgtime = BulkRobot.getUnitCounter() / BulkRobot.getNum_BR();
+        return avgtime;
+    }
+    public static double getMaintainFee() {
+        BulkRobot.maintainFee = BulkRobot.cal_Avg_time() * B_BASE_RATE ;
+        return maintainFee;
+    }
+
+
+    public String additionalLog() {
+        boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
+        double total = bServiceFee + BulkRobot.getMaintainFee();
+        if (feeCharging) {
+            return String.format(
+                    "  | Service Fee:  %.2f| Maintenance: %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f ",
+                    bServiceFee, BulkRobot.getMaintainFee(), BulkRobot.cal_Avg_time(), total);
+        }
+        else
+            return String.format("");
 	}
 }
