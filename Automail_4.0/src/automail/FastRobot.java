@@ -79,7 +79,7 @@ public class FastRobot extends Robot {
                     serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
                     fServiceFee = serviceFee.retrieveServiceFee(destination_floor);
                     
-                    delivery.deliver(this, deliveryItem, "");
+                    delivery.deliver(this, deliveryItem, additionalLog());
                     deliveryItem = null;
                     deliveryCounter++;
                     if(deliveryCounter > 2) {  // Implies a simulation bug

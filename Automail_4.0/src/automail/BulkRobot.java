@@ -84,7 +84,7 @@ public class BulkRobot extends Robot {
     				//get service fee
                     serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
                     	
-                    delivery.deliver(this, deliveryItem, "");
+                    delivery.deliver(this, deliveryItem, additionalLog());
                     deliveryItem = null;
                     deliveryCounter++;
                     
