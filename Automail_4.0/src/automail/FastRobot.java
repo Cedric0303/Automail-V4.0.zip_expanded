@@ -40,7 +40,8 @@ public class FastRobot extends Robot {
         this.delivery = delivery;
         this.mailPool = mailPool;
         this.receivedDispatch = false;
-        this.deliveryCounter = 0;
+		this.deliveryCounter = 0;
+		this.fServiceFee = 0;
 		FastRobot.num_FR ++;
 	}
 	
@@ -75,9 +76,12 @@ public class FastRobot extends Robot {
     			if(current_floor == destination_floor) { // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
     				
-    				//get service fee
-                    serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
-                    fServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+					//get service fee
+					if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
+						serviceFee = new ServiceFee(
+								Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+						fServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+					}
                     
                     delivery.deliver(this, deliveryItem, additionalLog());
                     deliveryItem = null;
