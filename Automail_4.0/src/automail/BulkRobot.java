@@ -46,6 +46,7 @@ public class BulkRobot extends Robot {
         this.receivedDispatch = false;
         this.tube = new Stack<MailItem>();
         this.deliveryCounter = 0;
+        this.bServiceFee = 0;
         BulkRobot.num_BR++;
 	}
 
@@ -81,14 +82,16 @@ public class BulkRobot extends Robot {
     			if(current_floor == destination_floor) { // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
     				
-    				//get service fee
-                    serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
-                    	
+                    
                     delivery.deliver(this, deliveryItem, additionalLog());
                     deliveryItem = null;
                     deliveryCounter++;
                     
-                    bServiceFee = serviceFee.retrieveServiceFee(destination_floor) * deliveryCounter;
+                    //get service fee
+                    if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
+                        serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+                        bServiceFee = serviceFee.retrieveServiceFee(destination_floor) * deliveryCounter;
+                    }
                     
                     
                    if (deliveryCounter > INDIVIDUAL_MAX_TUBE_SIZE) {  // Implies a simulation bug
