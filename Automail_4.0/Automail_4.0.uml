@@ -1,0 +1,2615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_i6AuIAhxEey61bc-5KK4OA" name="Automail_4_0">
+    <eAnnotations xmi:id="_k16aIAhxEey61bc-5KK4OA" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_k16aIQhxEey61bc-5KK4OA" source="codegen">
+        <details xmi:id="_k16aIghxEey61bc-5KK4OA" key="codegenDirectory" value="/Automail_4.0/src"/>
+        <details xmi:id="_myHoIAhxEey61bc-5KK4OA" key="AssociatedSourceCode" value="/Automail_4.0/src/automail/Automail.java;4012527948/1;/Automail_4.0/src/automail/Building.java;1703850632/1;/Automail_4.0/src/automail/BulkRobot.java;1077586063/1;/Automail_4.0/src/automail/FastRobot.java;3165943950/1;/Automail_4.0/src/automail/MailItem.java;71316697/1;/Automail_4.0/src/automail/MailPool.java;3250680556/1;/Automail_4.0/src/simulation/Simulation.java;1465885344/1;/Automail_4.0/src/automail/Robot.java;2086055104/1;/Automail_4.0/src/automail/ServiceFee.java;840026658/1;/Automail_4.0/src/exceptions/ExcessiveDeliveryException.java;573477310/1;/Automail_4.0/src/exceptions/ItemTooHeavyException.java;2499148863/1;/Automail_4.0/src/exceptions/MailAlreadyDeliveredException.java;2187781965/1;/Automail_4.0/src/simulation/Clock.java;1781026134/1;/Automail_4.0/src/simulation/IMailDelivery.java;2074880143/1;/Automail_4.0/src/simulation/MailGenerator.java;811510548/1;/Automail_4.0/src/automail/RegRobot.java;667427594/1;/Automail_4.0/src/util/Configuration.java;3256414124/1;/Automail_4.0/src/util/ReportDelivery.java;3315061061/1;"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_mPQysAhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_mPT2AAhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_mPUdEAhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_mPUdEQhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_mPVEIAhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_mPVEIQhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_mPVrMAhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_mPVrMQhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_mPWSQAhxEey61bc-5KK4OA">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mPajsAhxEey61bc-5KK4OA" name="simulation">
+      <packagedElement xmi:type="uml:Class" xmi:id="_mTub8AhxEey61bc-5KK4OA" name="Simulation">
+        <ownedComment xmi:id="_mdZ8ZAhxEey61bc-5KK4OA">
+          <body>This class simulates the behaviour of AutoMail</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_mcRT8AhxEey61bc-5KK4OA" name="iMailDelivery" visibility="private" isStatic="true" type="_mUOLMAhxEey61bc-5KK4OA" association="_meQQ8AhxEey61bc-5KK4OA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdOWMAhxEey61bc-5KK4OA" name="main" specification="_mTvDAAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdOWMQhxEey61bc-5KK4OA" name="args">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mdOWMghxEey61bc-5KK4OA" value="*"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>/** Load properties for simulation based on either default or a properties file.**/
+ 	Configuration configuration = Configuration.getInstance();
+
+     iMailDelivery = new ReportDelivery();
+
+     /** This code section below is to save a random seed for generating mails.
+      * If a program argument is entered, the first argument will be a random seed.
+      * If not a random seed will be from a properties file. 
+      * Otherwise, no a random seed. */
+     
+     /** Used to see whether a seed is initialized or not */
+     HashMap&lt;Boolean, Integer> seedMap = new HashMap&lt;>();
+     if (args.length == 0 ) { // No arg
+     	String seedProp = configuration.getProperty(Configuration.SEED_KEY);
+     	if (seedProp == null) { // and no property
+     		seedMap.put(false, 0); // so randomise
+     	} else { // Use property seed
+     		seedMap.put(true, Integer.parseInt(seedProp));
+     	}
+     } else { // Use arg seed - overrides property
+     	seedMap.put(true, Integer.parseInt(args[0]));
+     }
+     Integer seed = seedMap.get(true);
+     System.out.println(&quot;#A Random Seed: &quot; + (seed == null ? &quot;null&quot; : seed.toString()));
+
+     // setup the clock
+     Clock.MAIL_RECEVING_LENGTH = Integer.parseInt(configuration.getProperty(Configuration.MAIL_RECEIVING_LENGTH_KEY));
+     
+     /** Install the modem &amp; turn on the modem **/
+  	WifiModem wifiModem = WifiModem.getInstance(Building.getInstance().getMailroomLocationFloor());
+  	System.out.println(&quot;Setting up Wifi Modem&quot;);
+  	System.out.println(wifiModem.Turnon());
+
+     /**
+      * This code section is for running a simulation
+      */
+
+     /** Instantiate MailPool and Automail */
+  	MailPool mailPool = new MailPool();
+     int num_regular_robots = Integer.parseInt(configuration.getProperty(Configuration.REGULAR_ROBOTS_KEY));
+     int num_fast_robots = Integer.parseInt(configuration.getProperty(Configuration.FAST_ROBOTS_KEY));
+     int num_bulk_robots = Integer.parseInt(configuration.getProperty(Configuration.BULK_ROBOTS_KEY));
+     int total_robots = num_regular_robots + num_fast_robots + num_bulk_robots;
+     Automail automail = new Automail(mailPool, iMailDelivery, num_regular_robots, num_fast_robots, num_bulk_robots);
+
+     int mail_to_create = Integer.parseInt(configuration.getProperty(Configuration.MAIL_TO_CREATE_KEY));
+     int mail_max_weight = Integer.parseInt(configuration.getProperty(Configuration.MAIL_MAX_WEIGHT_KEY));
+     MailGenerator mailGenerator = new MailGenerator(mail_to_create, mail_max_weight, mailPool, seedMap);
+     
+     /** Generate all the mails */
+     mailGenerator.generateAllMail();
+
+     while(iMailDelivery.getDeliveredItems().size() != mailGenerator.MAIL_TO_CREATE)
+     {
+     	// System.out.printf(&quot;Delivered: %4d; Created: %4d%n&quot;, MAIL_DELIVERED.size(), mailGenerator.MAIL_TO_CREATE);
+         mailGenerator.addToMailPool();
+         try {
+             automail.getMailPool().loadItemsToRobot();
+				for (int i=0; i &lt; total_robots; i++)
+				{
+					automail.getRobots()[i].operate();
+				}
+			} catch (ExcessiveDeliveryException|ItemTooHeavyException e) {
+				e.printStackTrace();
+				System.out.println(&quot;Simulation unable to complete.&quot;);
+				System.exit(0);
+			}
+
+         Clock.Tick();
+     }
+
+     printResults();
+     System.out.println(wifiModem.Turnoff());
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdOWMwhxEey61bc-5KK4OA" name="printResults" specification="_mTw4MAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>System.out.println(&quot;T: &quot;+Clock.Time()+&quot; | Simulation complete!&quot;);
+     System.out.println(&quot;Final Delivery time: &quot;+Clock.Time());
+     System.out.printf(&quot;Delay: %.2f%n&quot;, iMailDelivery.getTotal_delay());
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mTvDAAhxEey61bc-5KK4OA" name="main" isStatic="true" method="_mdOWMAhxEey61bc-5KK4OA" raisedException="_mbJ5oQhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mTvqEAhxEey61bc-5KK4OA" name="args">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mTvqEQhxEey61bc-5KK4OA" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTw4MAhxEey61bc-5KK4OA" name="printResults" isStatic="true" method="_mdOWMwhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mUKg0AhxEey61bc-5KK4OA" name="Clock">
+        <ownedAttribute xmi:id="_mcU-UAhxEey61bc-5KK4OA" name="Time" visibility="private" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcU-UQhxEey61bc-5KK4OA" value="0"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcVlYQhxEey61bc-5KK4OA" name="MAIL_RECEVING_LENGTH" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdQLYghxEey61bc-5KK4OA" name="Time" specification="_mULu8AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdQLYwhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return Time;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdQLZAhxEey61bc-5KK4OA" name="Tick" specification="_mUM9EAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>Time++;
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mULu8AhxEey61bc-5KK4OA" name="Time" isStatic="true" method="_mdQLYghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mUMWAAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUM9EAhxEey61bc-5KK4OA" name="Tick" isStatic="true" method="_mdQLZAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_mUOLMAhxEey61bc-5KK4OA" name="IMailDelivery">
+        <ownedComment xmi:id="_mdbKgAhxEey61bc-5KK4OA">
+          <body>a MailDelivery is used by the Robot to deliver mail once it has arrived at the correct location</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_mUPZUAhxEey61bc-5KK4OA" name="total_delay" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mUQAYAhxEey61bc-5KK4OA" name="deliveredItems" visibility="package" type="_mTS-IAhxEey61bc-5KK4OA" association="_mdcYoAhxEey61bc-5KK4OA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mUQAYQhxEey61bc-5KK4OA" value="*"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_mafLQAhxEey61bc-5KK4OA" name="deliver">
+          <ownedParameter xmi:id="_mafLQQhxEey61bc-5KK4OA" name="robot" type="_mTyGUAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mafLQghxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mafyUAhxEey61bc-5KK4OA" name="additionalLog">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mUROgAhxEey61bc-5KK4OA" name="MailGenerator">
+        <ownedComment xmi:id="_mdcYoghxEey61bc-5KK4OA">
+          <body>This class generates the mail</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_mcWMcAhxEey61bc-5KK4OA" name="MAIL_TO_CREATE" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcWzgQhxEey61bc-5KK4OA" name="MAIL_MAX_WEIGHT" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcXakQhxEey61bc-5KK4OA" name="mailCreated" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcYBoAhxEey61bc-5KK4OA" name="random" visibility="private" isLeaf="true" type="_mbOLEAhxEey61bc-5KK4OA" isReadOnly="true" association="_meStMQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcYosAhxEey61bc-5KK4OA" name="complete" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcYosghxEey61bc-5KK4OA" name="mailPool" visibility="private" type="_mTfycAhxEey61bc-5KK4OA" association="_meTUQQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcZPwQhxEey61bc-5KK4OA" name="allMail" visibility="private" type="_mbPZMAhxEey61bc-5KK4OA" association="_meUiYAhxEey61bc-5KK4OA">
+          <qualifier xmi:id="_mcad4QhxEey61bc-5KK4OA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </qualifier>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdQycAhxEey61bc-5KK4OA" name="MailGenerator" specification="_mbQnUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdQycQhxEey61bc-5KK4OA" name="mailToCreate">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdQycghxEey61bc-5KK4OA" name="mailMaxWeight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdQycwhxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdQydAhxEey61bc-5KK4OA" name="seed" type="_maX2gQhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdQydQhxEey61bc-5KK4OA" type="_mUROgAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>if(seed.containsKey(true)) {
+     	this.random = new Random((long) seed.get(true));
+     }
+     else{
+     	this.random = new Random();	
+     }
+     // Vary arriving mail by +/-20%
+     MAIL_TO_CREATE = mailToCreate*4/5 + random.nextInt(mailToCreate*2/5);
+     MAIL_MAX_WEIGHT = mailMaxWeight;
+     // System.out.println(&quot;Num Mail Items: &quot;+MAIL_TO_CREATE);
+     mailCreated = 0;
+     complete = false;
+     allMail = new HashMap&lt;Integer,ArrayList&lt;MailItem>>();
+     this.mailPool = mailPool;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdQydghxEey61bc-5KK4OA" name="generateMail" specification="_mUTqwAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdQydwhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>MailItem newMailItem;
+     int destinationFloor = generateDestinationFloor();
+     int priorityLevel = generatePriorityLevel();
+     int arrivalTime = generateArrivalTime();
+     int weight = generateWeight();
+     newMailItem = new MailItem(destinationFloor,arrivalTime,weight);      	
+     return newMailItem;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdQyeAhxEey61bc-5KK4OA" name="generateDestinationFloor" specification="_mUTqwQhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdQyeQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return Building.getInstance().getLowestFloor() + random.nextInt(Building.getInstance().getnFloors());
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdRZgAhxEey61bc-5KK4OA" name="generateWeight" specification="_mUUR0QhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdRZgQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>final double mean = 200.0; // grams for normal item
+ 	final double stddev = 1000.0; // grams
+ 	double base = random.nextGaussian();
+ 	if (base &lt; 0) base = -base;
+ 	int weight = (int) (mean + base * stddev);
+     return weight > MAIL_MAX_WEIGHT ? MAIL_MAX_WEIGHT : weight;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdRZgghxEey61bc-5KK4OA" name="generateArrivalTime" specification="_mUU44AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdRZgwhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return 1 + random.nextInt(Clock.MAIL_RECEVING_LENGTH);
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdRZhAhxEey61bc-5KK4OA" name="generatePriorityLevel" specification="_mUU44ghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdRZhQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return 10*(1 + random.nextInt(10));
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdRZhghxEey61bc-5KK4OA" name="generateAllMail" specification="_mUVf8QhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>while(!complete) {
+         MailItem newMail =  generateMail();
+         int timeToDeliver = newMail.getArrivalTime();
+         /** Check if key exists for this time **/
+         if(allMail.containsKey(timeToDeliver)) {
+             /** Add to existing array */
+             allMail.get(timeToDeliver).add(newMail);
+         }
+         else{
+             /** If the key doesn't exist then set a new key along with the array of MailItems to add during
+              * that time step.
+              */
+             ArrayList&lt;MailItem> newMailList = new ArrayList&lt;MailItem>();
+             newMailList.add(newMail);
+             allMail.put(timeToDeliver,newMailList);
+         }
+         /** Mark the mail as created */
+         mailCreated++;
+
+         /** Once we have satisfied the amount of mail to create, we're done!*/
+         if(mailCreated == MAIL_TO_CREATE) {
+             complete = true;
+         }
+     }
+
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdRZhwhxEey61bc-5KK4OA" name="addToMailPool" specification="_mUVf8ghxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>// Check if there are any mail to create
+     if(this.allMail.containsKey(Clock.Time())) {
+         for(MailItem mailItem : allMail.get(Clock.Time())) {
+             System.out.printf(&quot;T: %3d > new addToPool [%s]%n&quot;, Clock.Time(), mailItem.toString());
+             mailPool.addToPool(mailItem);
+         }
+     }
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mUTqwAhxEey61bc-5KK4OA" name="generateMail" visibility="private" method="_mdQydghxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_sAhxEey61bc-5KK4OA">
+            <body>@return a new mail item that needs to be delivered</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mahAcAhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUTqwQhxEey61bc-5KK4OA" name="generateDestinationFloor" visibility="private" method="_mdQyeAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_sQhxEey61bc-5KK4OA">
+            <body>@return a destination floor between the ranges of GROUND_FLOOR to FLOOR</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mUUR0AhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUUR0QhxEey61bc-5KK4OA" name="generateWeight" visibility="private" method="_mdRZgAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_sghxEey61bc-5KK4OA">
+            <body>@return a random weight</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mUUR0ghxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUU44AhxEey61bc-5KK4OA" name="generateArrivalTime" visibility="private" method="_mdRZgghxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_swhxEey61bc-5KK4OA">
+            <body>@return a random arrival time before the last delivery time</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mUU44QhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUU44ghxEey61bc-5KK4OA" name="generatePriorityLevel" visibility="private" method="_mdRZhAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_tAhxEey61bc-5KK4OA">
+            <body>@return a random priority level selected from 1 - 100</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mUVf8AhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUVf8QhxEey61bc-5KK4OA" name="generateAllMail" method="_mdRZhghxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_tQhxEey61bc-5KK4OA">
+            <body>This class initializes all mails and sets their corresponding values,
+     * All generated mails will be saved in allMail</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUVf8ghxEey61bc-5KK4OA" name="addToMailPool" method="_mdRZhwhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_tghxEey61bc-5KK4OA">
+            <body>Given the clock time, put the generated mails into the mailPool.
+     * So that the robot will can pick up the mails from the pool.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mbQnUAhxEey61bc-5KK4OA" name="MailGenerator" method="_mdQycAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mbQnVQhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mbQnVghxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_mdcYowhxEey61bc-5KK4OA">
+            <body>Constructor for mail generation
+     * @param mailToCreate roughly how many mail items to create
+     * @param mailMaxWeight limits the maximum weight of the mail
+     * @param mailPool where mail items go on arrival
+     * @param seed random seed for generating mail</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mbQnUQhxEey61bc-5KK4OA" name="mailToCreate">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mbQnUghxEey61bc-5KK4OA" name="mailMaxWeight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mbQnUwhxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mbQnVAhxEey61bc-5KK4OA" name="seed" type="_maX2gQhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mbQnVwhxEey61bc-5KK4OA" type="_mUROgAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mdcYoAhxEey61bc-5KK4OA" name="" memberEnd="_mUQAYAhxEey61bc-5KK4OA _mdcYoQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mdcYoQhxEey61bc-5KK4OA" name="" type="_mUOLMAhxEey61bc-5KK4OA" association="_mdcYoAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meQQ8AhxEey61bc-5KK4OA" name="" memberEnd="_meQQ8QhxEey61bc-5KK4OA _mcRT8AhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meQQ8QhxEey61bc-5KK4OA" name="" type="_mTub8AhxEey61bc-5KK4OA" association="_meQQ8AhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meStMQhxEey61bc-5KK4OA" name="" memberEnd="_meStMghxEey61bc-5KK4OA _mcYBoAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meStMghxEey61bc-5KK4OA" name="" type="_mUROgAhxEey61bc-5KK4OA" association="_meStMQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meTUQQhxEey61bc-5KK4OA" name="" memberEnd="_meTUQghxEey61bc-5KK4OA _mcYosghxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meTUQghxEey61bc-5KK4OA" name="" type="_mUROgAhxEey61bc-5KK4OA" association="_meTUQQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meUiYAhxEey61bc-5KK4OA" name="" memberEnd="_meUiYQhxEey61bc-5KK4OA _mcZPwQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meUiYQhxEey61bc-5KK4OA" name="" type="_mUROgAhxEey61bc-5KK4OA" association="_meUiYAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mPk7wAhxEey61bc-5KK4OA" name="automail">
+      <packagedElement xmi:type="uml:Class" xmi:id="_mR-vgAhxEey61bc-5KK4OA" name="Automail">
+        <ownedAttribute xmi:id="_mbcNgAhxEey61bc-5KK4OA" name="robots" type="_mTyGUAhxEey61bc-5KK4OA" isReadOnly="true" association="_mdrCIAhxEey61bc-5KK4OA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mbcNgQhxEey61bc-5KK4OA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbc0kAhxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA" isReadOnly="true" association="_mdrpMQhxEey61bc-5KK4OA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mc60MAhxEey61bc-5KK4OA" name="Automail" specification="_mZtIIAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mc7bQAhxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mc7bQQhxEey61bc-5KK4OA" name="delivery" type="_mUOLMAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mc7bQghxEey61bc-5KK4OA" name="numRegRobots">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mc7bQwhxEey61bc-5KK4OA" name="numFastRobots">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mc7bRAhxEey61bc-5KK4OA" name="numBulkRobots">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mc7bRQhxEey61bc-5KK4OA" type="_mR-vgAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>/** Initialize the MailPool */
+ 	
+ 	this.mailPool = mailPool;
+ 	
+ 	/** Initialize robots, currently only regular robots */
+ 	int numAllRobots = numRegRobots + numFastRobots + numBulkRobots;
+ 	robots = new Robot[numAllRobots];
+ 	for (int i = 0; i &lt; numAllRobots; i++) {
+ 		if (numRegRobots > 0 &amp;&amp; i &lt; numRegRobots) {
+ 			robots[i] = new RegRobot(delivery, mailPool, i);
+ 		}
+ 		else if (numFastRobots > 0 &amp;&amp; i &lt; numRegRobots + numFastRobots) {
+ 			robots[i] = new FastRobot(delivery, mailPool, i);
+ 		}
+ 		else if (numBulkRobots > 0 &amp;&amp; i &lt; numAllRobots) {
+ 			robots[i] = new BulkRobot(delivery, mailPool, i);
+ 		}
+ 	}
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mZtIIAhxEey61bc-5KK4OA" name="Automail" method="_mc60MAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mZtvNQhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mZtvNghxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mZtvMAhxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mZtvMQhxEey61bc-5KK4OA" name="delivery" type="_mUOLMAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mZtvMghxEey61bc-5KK4OA" name="numRegRobots">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mZtvMwhxEey61bc-5KK4OA" name="numFastRobots">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mZtvNAhxEey61bc-5KK4OA" name="numBulkRobots">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mZtvNwhxEey61bc-5KK4OA" type="_mR-vgAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mSH5cAhxEey61bc-5KK4OA" name="Building">
+        <ownedAttribute xmi:id="_mbdboAhxEey61bc-5KK4OA" name="nFloors" visibility="private" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbeCsQhxEey61bc-5KK4OA" name="lowestFloor" visibility="private" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbepwQhxEey61bc-5KK4OA" name="mailroomLocationFloor" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbf34QhxEey61bc-5KK4OA" name="building" visibility="private" isStatic="true" type="_mSH5cAhxEey61bc-5KK4OA" association="_mdsQQQhxEey61bc-5KK4OA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mc-ekQhxEey61bc-5KK4OA" name="Building" specification="_mSK8wAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mc-ekghxEey61bc-5KK4OA" name="nFloors">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mc-ekwhxEey61bc-5KK4OA" name="lowestFloor">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mc-elAhxEey61bc-5KK4OA" name="mailroomLocationFloor">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mc-elQhxEey61bc-5KK4OA" type="_mSH5cAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>this.nFloors = nFloors;
+     this.lowestFloor = lowestFloor;
+     this.mailroomLocationFloor = mailroomLocationFloor;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mc-elghxEey61bc-5KK4OA" name="getInstance" specification="_mSP1QAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mc-elwhxEey61bc-5KK4OA" type="_mSH5cAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>if(building == null)
+     {
+         Configuration configuration = Configuration.getInstance();
+         int nFloors = Integer.parseInt(configuration.getProperty(Configuration.N_FLOORS_KEY));
+         int lowestFloor = Integer.parseInt(configuration.getProperty(Configuration.LOWEST_FLOOR_KEY));
+         int mailroomLocationFloor = Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY));
+         building = new Building(nFloors, lowestFloor, mailroomLocationFloor);
+     }
+
+     return building;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mc_FoAhxEey61bc-5KK4OA" name="getnFloors" specification="_mSRqcAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mc_FoQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return nFloors;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mc_FoghxEey61bc-5KK4OA" name="getLowestFloor" specification="_mSS4kAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mc_FowhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return lowestFloor;
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mSK8wAhxEey61bc-5KK4OA" name="Building" visibility="private" method="_mc-ekQhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mSOAEAhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mSOAEQhxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mSK8wQhxEey61bc-5KK4OA" name="nFloors">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mSLj0AhxEey61bc-5KK4OA" name="lowestFloor">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mSLj0QhxEey61bc-5KK4OA" name="mailroomLocationFloor">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mSOnIAhxEey61bc-5KK4OA" type="_mSH5cAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mSP1QAhxEey61bc-5KK4OA" name="getInstance" isStatic="true" method="_mc-elghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mZu9UAhxEey61bc-5KK4OA" type="_mSH5cAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mSRqcAhxEey61bc-5KK4OA" name="getnFloors" method="_mc_FoAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mSSRgAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mSS4kAhxEey61bc-5KK4OA" name="getLowestFloor" method="_mc_FoghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mSTfoAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mSXKAAhxEey61bc-5KK4OA" name="BulkRobot">
+        <generalization xmi:id="_mZ5VYAhxEey61bc-5KK4OA" general="_mTyGUAhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mbiUIAhxEey61bc-5KK4OA" name="INDIVIDUAL_MAX_TUBE_SIZE" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mbiUIQhxEey61bc-5KK4OA" value="5"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbi7MAhxEey61bc-5KK4OA" name="B_BASE_RATE" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mbi7MQhxEey61bc-5KK4OA" value="0.01"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbjiQAhxEey61bc-5KK4OA" name="unitCounter" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mbjiQghxEey61bc-5KK4OA" value="0"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbkwYQhxEey61bc-5KK4OA" name="maintainFee" visibility="private" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mblXcAhxEey61bc-5KK4OA" value="0"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbl-gAhxEey61bc-5KK4OA" name="num_BR" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mbmlkQhxEey61bc-5KK4OA" value="0"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbpB0AhxEey61bc-5KK4OA" name="delivery" visibility="private" type="_mUOLMAhxEey61bc-5KK4OA" association="_mds3UQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mbpo4QhxEey61bc-5KK4OA" name="id" visibility="private" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbqP8QhxEey61bc-5KK4OA" name="current_state" visibility="private" type="_ma_hkAhxEey61bc-5KK4OA" association="_mdteYQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mbreEAhxEey61bc-5KK4OA" name="current_floor" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbsFIAhxEey61bc-5KK4OA" name="destination_floor" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbssMAhxEey61bc-5KK4OA" name="mailPool" visibility="private" type="_mTfycAhxEey61bc-5KK4OA" association="_mduFcQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mbtTQAhxEey61bc-5KK4OA" name="receivedDispatch" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbt6UAhxEey61bc-5KK4OA" name="deliveryItem" visibility="private" type="_mTS-IAhxEey61bc-5KK4OA" association="_mdusgQhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mbt6UQhxEey61bc-5KK4OA" value="null"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbuhYQhxEey61bc-5KK4OA" name="tube" type="_mZvkYAhxEey61bc-5KK4OA" isReadOnly="true" association="_meF44QhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mbwWkAhxEey61bc-5KK4OA" value="null"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbxksQhxEey61bc-5KK4OA" name="deliveryCounter" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbyLwQhxEey61bc-5KK4OA" name="bServiceFee" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mbyy0QhxEey61bc-5KK4OA" name="serviceFee" visibility="private" type="_mT9sgAhxEey61bc-5KK4OA" association="_meHHAAhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mbzZ4QhxEey61bc-5KK4OA" name="configuration" visibility="private" type="_mUppAAhxEey61bc-5KK4OA" association="_meHuEQhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mb0A8AhxEey61bc-5KK4OA" value="Configuration.getInstance()"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mc_stAhxEey61bc-5KK4OA" name="BulkRobot" specification="_mZz10AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mc_stQhxEey61bc-5KK4OA" name="delivery" type="_mUOLMAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mc_stghxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mc_stwhxEey61bc-5KK4OA" name="number">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mc_suAhxEey61bc-5KK4OA" type="_mSXKAAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>super();
+		this.id = &quot;B&quot; + number;
+ 	current_state = RobotState.RETURNING;
+     current_floor = Building.getInstance().getMailroomLocationFloor();
+     this.delivery = delivery;
+     this.mailPool = mailPool;
+     this.receivedDispatch = false;
+     this.tube = new Stack&lt;MailItem>();
+     this.deliveryCounter = 0;
+     BulkRobot.num_BR++;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdATwAhxEey61bc-5KK4OA" name="dispatch" specification="_mSd3sAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>this.receivedDispatch = true;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdATwQhxEey61bc-5KK4OA" name="operate" specification="_mSeewAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>switch(current_state) {
+ 		/** This state is triggered when the robot is returning to the mailroom after a delivery */
+ 		case RETURNING:
+ 			/** If its current position is at the mailroom, then the robot should change state */
+             if(current_floor == Building.getInstance().getMailroomLocationFloor()) {
+     			/** Tell the sorter the robot is ready */
+     			mailPool.registerWaiting(this);
+             	changeState(RobotState.WAITING);
+             } else {
+             	/** If the robot is not at the mailroom floor yet, then move towards it! */
+                 moveTowards(Building.getInstance().getMailroomLocationFloor());
+             	break;
+             }
+ 		case WAITING:
+             /** If the StorageTube is ready and the Robot is waiting in the mailroom then start the delivery */
+             if (!isEmpty() &amp;&amp; receivedDispatch) {
+             	receivedDispatch = false;
+             	deliveryItem = tube.pop();
+             	deliveryCounter = 0; // reset delivery counter
+             	setDestination();
+             	changeState(RobotState.DELIVERING);
+             }
+             break;
+ 		case DELIVERING:
+ 			if(current_floor == destination_floor) { // If already here drop off either way
+                 /** Delivery complete, report this to the simulator! */
+ 				
+ 				//get service fee
+                 serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+                 	
+                 delivery.deliver(this, deliveryItem, additionalLog());
+                 deliveryItem = null;
+                 deliveryCounter++;
+                 
+                 bServiceFee = serviceFee.retrieveServiceFee(destination_floor) * deliveryCounter;
+                 
+                 
+                if (deliveryCounter > INDIVIDUAL_MAX_TUBE_SIZE) {  // Implies a simulation bug
+                	throw new ExcessiveDeliveryException();
+                }
+                 /** Check if want to return, i.e. if there is no item in the tube*/
+                 if (tube.size() == 0) {
+                 	changeState(RobotState.RETURNING);
+                 }
+                 else if (tube.size() > 0) {
+                     /** If there is another item, set the robot's route to the location to deliver the item */
+                     deliveryItem = tube.pop();
+                     setDestination();
+                     changeState(RobotState.DELIVERING);
+                 }
+ 			} else {
+	        		/** The robot is not at the destination yet, move towards it! */
+	                moveTowards(destination_floor);
+ 			}
+             break;
+ 	}
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdATwghxEey61bc-5KK4OA" name="setDestination" specification="_mSfF0AhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>/** Set the destination floor */
+     destination_floor = deliveryItem.getDestFloor();
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdATwwhxEey61bc-5KK4OA" name="moveTowards" specification="_mSfs4AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdATxAhxEey61bc-5KK4OA" name="destination">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>BulkRobot.addCounter();
+     if(current_floor &lt; destination) {
+         current_floor++;
+     } else {
+         current_floor--;
+     }
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdBh4AhxEey61bc-5KK4OA" name="getIdTube" specification="_mSg7AAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdBh4QhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return String.format(&quot;%s(%1d)&quot;, this.id, tube.size() + (deliveryItem == null ? 0 : 1));
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdCI8AhxEey61bc-5KK4OA" name="changeState" specification="_mbAvsAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdCI8QhxEey61bc-5KK4OA" name="nextState" type="_ma_hkAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>assert(!(tube.size() == 0));
+ 	if (current_state != nextState) {
+         System.out.printf(&quot;T: %3d > %7s changed from %s to %s%n&quot;, Clock.Time(), getIdTube(), current_state, nextState);
+ 	}
+ 	current_state = nextState;
+ 	if(nextState == RobotState.DELIVERING) {
+         System.out.printf(&quot;T: %3d > %7s-> [%s]%n&quot;, Clock.Time(), getIdTube(), deliveryItem.toString());
+ 	}
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdCI8ghxEey61bc-5KK4OA" name="isEmpty" specification="_mSiJIAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdCI8whxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return (deliveryItem == null &amp;&amp; tube.size() == 0);
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdCwAAhxEey61bc-5KK4OA" name="addToTube" specification="_mZ4uUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdCwAQhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>assert(tube.size() &lt; INDIVIDUAL_MAX_TUBE_SIZE);
+		tube.add(mailItem);
+		if (tube.peek().weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdCwAghxEey61bc-5KK4OA" name="addCounter" specification="_mSjXQAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>BulkRobot.unitCounter++;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdCwAwhxEey61bc-5KK4OA" name="cal_Avg_time" specification="_mSj-UAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdCwBAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>double avgtime;
+     avgtime = BulkRobot.getUnitCounter() / BulkRobot.getNum_BR();
+     return avgtime;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdDXEAhxEey61bc-5KK4OA" name="getMaintainFee" specification="_mSlMcAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdDXEQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>BulkRobot.maintainFee = BulkRobot.cal_Avg_time() * B_BASE_RATE ;
+     return maintainFee;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdDXEghxEey61bc-5KK4OA" name="additionalLog" specification="_mSlzgAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdDXEwhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
+     double total = bServiceFee + BulkRobot.getMaintainFee();
+     if (feeCharging) {
+         return String.format(
+                 &quot;  | Service Fee:  %.2f| Maintenance: %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f &quot;,
+                 bServiceFee, BulkRobot.getMaintainFee(), BulkRobot.cal_Avg_time(), total);
+     }
+     else
+         return String.format(&quot;&quot;);
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mSd3sAhxEey61bc-5KK4OA" name="dispatch" method="_mdATwAhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mSeewAhxEey61bc-5KK4OA" name="operate" method="_mdATwQhxEey61bc-5KK4OA" raisedException="_mUDzIAhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mSfF0AhxEey61bc-5KK4OA" name="setDestination" visibility="package" method="_mdATwghxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mSfs4AhxEey61bc-5KK4OA" name="moveTowards" visibility="package" method="_mdATwwhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdYuQAhxEey61bc-5KK4OA">
+            <body>Generic function that moves the robot towards the destination
+     * @param destination the floor towards which the robot is moving</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mSgT8AhxEey61bc-5KK4OA" name="destination">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mSg7AAhxEey61bc-5KK4OA" name="getIdTube" method="_mdBh4AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mShiEAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mSiJIAhxEey61bc-5KK4OA" name="isEmpty" method="_mdCI8ghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mSiJIQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mSjXQAhxEey61bc-5KK4OA" name="addCounter" isStatic="true" method="_mdCwAghxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mSj-UAhxEey61bc-5KK4OA" name="cal_Avg_time" isStatic="true" method="_mdCwAwhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mSklYAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mSlMcAhxEey61bc-5KK4OA" name="getMaintainFee" isStatic="true" method="_mdDXEAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mSlMcQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mSlzgAhxEey61bc-5KK4OA" name="additionalLog" method="_mdDXEghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mSmakAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mZz10AhxEey61bc-5KK4OA" name="BulkRobot" method="_mc_stAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mZ1D8AhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mZ1D8QhxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mZ0c4AhxEey61bc-5KK4OA" name="delivery" type="_mUOLMAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mZ0c4QhxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mZ0c4ghxEey61bc-5KK4OA" name="number">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mZ1D8ghxEey61bc-5KK4OA" type="_mSXKAAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mZ25IAhxEey61bc-5KK4OA" name="addToHand" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mZ3gMAhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mZ4uUAhxEey61bc-5KK4OA" name="addToTube" method="_mdCwAAhxEey61bc-5KK4OA" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mZ4uUQhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mbAvsAhxEey61bc-5KK4OA" name="changeState" visibility="package" method="_mdCI8AhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdYuQQhxEey61bc-5KK4OA">
+            <body>Prints out the change in state
+     * @param nextState the state to which the robot is transitioning</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mbBWwAhxEey61bc-5KK4OA" name="nextState" type="_ma_hkAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mS25QAhxEey61bc-5KK4OA" name="FastRobot">
+        <generalization xmi:id="_maCfUQhxEey61bc-5KK4OA" general="_mTyGUAhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mb2dMAhxEey61bc-5KK4OA" name="INDIVIDUAL_MAX_MOVE_SPEED" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mb3EQAhxEey61bc-5KK4OA" value="3"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mb3EQQhxEey61bc-5KK4OA" name="F_BASE_RATE" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mb3rUAhxEey61bc-5KK4OA" value="0.05"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mb3rUQhxEey61bc-5KK4OA" name="unitCounter" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mb5ggAhxEey61bc-5KK4OA" name="maintainFee" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mb78wAhxEey61bc-5KK4OA" name="num_FR" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mb9K4QhxEey61bc-5KK4OA" name="delivery" visibility="private" type="_mUOLMAhxEey61bc-5KK4OA" association="_meI8MQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mb9x8QhxEey61bc-5KK4OA" name="id" visibility="private" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mb-ZAQhxEey61bc-5KK4OA" name="current_state" visibility="private" type="_ma_hkAhxEey61bc-5KK4OA" association="_meKKUAhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mb_AEQhxEey61bc-5KK4OA" name="current_floor" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mb_AEwhxEey61bc-5KK4OA" name="destination_floor" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mb_nIQhxEey61bc-5KK4OA" name="mailPool" visibility="private" type="_mTfycAhxEey61bc-5KK4OA" association="_meKxYAhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcAOMQhxEey61bc-5KK4OA" name="receivedDispatch" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcA1QQhxEey61bc-5KK4OA" name="deliveryItem" visibility="private" type="_mTS-IAhxEey61bc-5KK4OA" association="_meLYcAhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcA1QghxEey61bc-5KK4OA" value="null"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcBcUQhxEey61bc-5KK4OA" name="deliveryCounter" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcCDYQhxEey61bc-5KK4OA" name="fServiceFee" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcCqcQhxEey61bc-5KK4OA" name="serviceFee" visibility="private" type="_mT9sgAhxEey61bc-5KK4OA" association="_meL_gQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcDRgQhxEey61bc-5KK4OA" name="configuration" visibility="private" type="_mUppAAhxEey61bc-5KK4OA" association="_meMmkQhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcDRgghxEey61bc-5KK4OA" value="Configuration.getInstance()"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdElMAhxEey61bc-5KK4OA" name="FastRobot" specification="_mZ_cAAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdElMQhxEey61bc-5KK4OA" name="delivery" type="_mUOLMAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdElMghxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdElMwhxEey61bc-5KK4OA" name="number">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdElNAhxEey61bc-5KK4OA" type="_mS25QAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>super();
+		this.id = &quot;F&quot; + number;
+ 	current_state = RobotState.RETURNING;
+     current_floor = Building.getInstance().getMailroomLocationFloor();
+     this.delivery = delivery;
+     this.mailPool = mailPool;
+     this.receivedDispatch = false;
+     this.deliveryCounter = 0;
+		FastRobot.num_FR ++;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdElNQhxEey61bc-5KK4OA" name="dispatch" specification="_mS7xwAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>this.receivedDispatch = true;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdElNghxEey61bc-5KK4OA" name="operate" specification="_mS9m8AhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>switch(current_state) {
+ 		/** This state is triggered when the robot is returning to the mailroom after a delivery */
+ 		case RETURNING:
+ 			/** If its current position is at the mailroom, then the robot should change state */
+             if(current_floor == Building.getInstance().getMailroomLocationFloor()) {
+     			/** Tell the sorter the robot is ready */
+     			mailPool.registerWaiting(this);
+             	changeState(RobotState.WAITING);
+             } else {
+             	/** If the robot is not at the mailroom floor yet, then move towards it! */
+                 moveTowards(Building.getInstance().getMailroomLocationFloor());
+             	break;
+             }
+ 		case WAITING:
+             /** If the StorageTube is ready and the Robot is waiting in the mailroom then start the delivery */
+             if(!isEmpty() &amp;&amp; receivedDispatch) {
+             	receivedDispatch = false;
+             	deliveryCounter = 0; // reset delivery counter
+             	setDestination();
+             	changeState(RobotState.DELIVERING);
+             }
+             break;
+ 		case DELIVERING:
+ 			if(current_floor == destination_floor) { // If already here drop off either way
+                 /** Delivery complete, report this to the simulator! */
+ 				
+ 				//get service fee
+                 serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+                 fServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+                 
+                 delivery.deliver(this, deliveryItem, additionalLog());
+                 deliveryItem = null;
+                 deliveryCounter++;
+                 if(deliveryCounter > 2) {  // Implies a simulation bug
+                 	throw new ExcessiveDeliveryException();
+                 }
+                 /** Check if want to return, i.e. if there is no item in the tube*/
+                 else {
+                 	changeState(RobotState.RETURNING);
+                 }
+ 			} else {
+	        		/** The robot is not at the destination yet, move towards it! */
+	                moveTowards(destination_floor);
+ 			}
+             break;
+ 	}
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdElNwhxEey61bc-5KK4OA" name="setDestination" specification="_mS-OAAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>/** Set the destination floor */
+     destination_floor = deliveryItem.getDestFloor();
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdFMQAhxEey61bc-5KK4OA" name="moveTowards" specification="_mS-1EAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdFMQQhxEey61bc-5KK4OA" name="destination">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>int distance = Math.abs(destination - current_floor);
+ 	if (distance &lt;= INDIVIDUAL_MAX_MOVE_SPEED) {
+ 		current_floor = destination;
+ 	}
+ 	else if(current_floor &lt; destination) {
+ 		current_floor += INDIVIDUAL_MAX_MOVE_SPEED;
+     } else {
+ 		current_floor -= INDIVIDUAL_MAX_MOVE_SPEED;
+     }
+		FastRobot.addCounter();
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdFMQghxEey61bc-5KK4OA" name="getIdTube" specification="_mTADMAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdFMQwhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return String.format(&quot;%s(0)&quot;, this.id);
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdFMRAhxEey61bc-5KK4OA" name="changeState" specification="_mbDzAAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdFMRQhxEey61bc-5KK4OA" name="nextState" type="_ma_hkAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>assert(!(deliveryItem == null));
+ 	if (current_state != nextState) {
+         System.out.printf(&quot;T: %3d > %7s changed from %s to %s%n&quot;, Clock.Time(), getIdTube(), current_state, nextState);
+ 	}
+ 	current_state = nextState;
+ 	if(nextState == RobotState.DELIVERING) {
+         System.out.printf(&quot;T: %3d > %7s-> [%s]%n&quot;, Clock.Time(), getIdTube(), deliveryItem.toString());
+ 	}
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdFzUAhxEey61bc-5KK4OA" name="getTube" specification="_mTBRUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdFzUQhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>return null;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdFzUghxEey61bc-5KK4OA" name="isEmpty" specification="_mTB4YAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdFzUwhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return (deliveryItem == null);
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdFzVAhxEey61bc-5KK4OA" name="addToHand" specification="_maBRMQhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdFzVQhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>assert(deliveryItem == null);
+		deliveryItem = mailItem;
+		if (deliveryItem.weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdGaYAhxEey61bc-5KK4OA" name="addCounter" specification="_mTDGgAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>FastRobot.unitCounter++;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdHBcAhxEey61bc-5KK4OA" name="cal_Avg_time" specification="_mTDtkAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdHBcQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>double avgtime;
+		avgtime = FastRobot.getUnitCounter() / FastRobot.getNum_FR();
+		return avgtime;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdHBcghxEey61bc-5KK4OA" name="additionalLog" specification="_mTEUoAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdHBcwhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
+		double total = fServiceFee + FastRobot.getMaintainFee();
+		if (feeCharging) {
+			return String.format(
+					&quot;  | Service Fee:  %.2f| Maintenance:  %.2f| Avg. Operating Time:  %.2f | Total Charge:  %.2f &quot;,
+					fServiceFee, FastRobot.getMaintainFee(), FastRobot.cal_Avg_time(), total);
+		}
+		else
+			return String.format(&quot;&quot;);
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mS7xwAhxEey61bc-5KK4OA" name="dispatch" method="_mdElNQhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mS9m8AhxEey61bc-5KK4OA" name="operate" method="_mdElNghxEey61bc-5KK4OA" raisedException="_mUDzIAhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mS-OAAhxEey61bc-5KK4OA" name="setDestination" visibility="package" method="_mdElNwhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mS-1EAhxEey61bc-5KK4OA" name="moveTowards" visibility="package" method="_mdFMQAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZVUAhxEey61bc-5KK4OA">
+            <body>Generic function that moves the robot towards the destination
+     * @param destination the floor towards which the robot is moving</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mS_cIAhxEey61bc-5KK4OA" name="destination">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTADMAhxEey61bc-5KK4OA" name="getIdTube" method="_mdFMQghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mTAqQAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTBRUAhxEey61bc-5KK4OA" name="getTube" method="_mdFzUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_maBRMAhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTB4YAhxEey61bc-5KK4OA" name="isEmpty" method="_mdFzUghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mTB4YQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTDGgAhxEey61bc-5KK4OA" name="addCounter" isStatic="true" method="_mdGaYAhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mTDtkAhxEey61bc-5KK4OA" name="cal_Avg_time" isStatic="true" method="_mdHBcAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mTDtkQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTEUoAhxEey61bc-5KK4OA" name="additionalLog" method="_mdHBcghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mTE7sAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mZ_cAAhxEey61bc-5KK4OA" name="FastRobot" method="_mdElMAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_maAqIAhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_maAqIQhxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_maADEAhxEey61bc-5KK4OA" name="delivery" type="_mUOLMAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_maADEQhxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_maADEghxEey61bc-5KK4OA" name="number">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_maAqIghxEey61bc-5KK4OA" type="_mS25QAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_maBRMQhxEey61bc-5KK4OA" name="addToHand" method="_mdFzVAhxEey61bc-5KK4OA" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_maB4QAhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_maB4QQhxEey61bc-5KK4OA" name="addToTube">
+          <ownedParameter xmi:id="_maB4QghxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mbDzAAhxEey61bc-5KK4OA" name="changeState" visibility="package" method="_mdFMRAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZVUQhxEey61bc-5KK4OA">
+            <body>Prints out the change in state
+     * @param nextState the state to which the robot is transitioning</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mbDzAQhxEey61bc-5KK4OA" name="nextState" type="_ma_hkAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mTS-IAhxEey61bc-5KK4OA" name="MailItem">
+        <ownedComment xmi:id="_mdZVUghxEey61bc-5KK4OA">
+          <body>Represents a mail item</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_mcEfoAhxEey61bc-5KK4OA" name="destination_floor" visibility="protected" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcFGsQhxEey61bc-5KK4OA" name="id" visibility="protected" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcGU0AhxEey61bc-5KK4OA" name="arrival_time" visibility="protected" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcG74QhxEey61bc-5KK4OA" name="weight" visibility="protected" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcIKAAhxEey61bc-5KK4OA" name="count" visibility="private" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcIKAQhxEey61bc-5KK4OA" value="0"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcIxEQhxEey61bc-5KK4OA" name="hashMap" visibility="private" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <qualifier xmi:id="_mcJ_MAhxEey61bc-5KK4OA">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </qualifier>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcJYIAhxEey61bc-5KK4OA" value="new TreeMap&lt;Integer, Integer>()"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdI2oAhxEey61bc-5KK4OA" name="MailItem" specification="_mTVaYAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdI2oQhxEey61bc-5KK4OA" name="dest_floor">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdI2oghxEey61bc-5KK4OA" name="arrival_time">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdI2owhxEey61bc-5KK4OA" name="weight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdI2pAhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>this.destination_floor = dest_floor;
+     this.id = String.valueOf(hashCode());
+     this.arrival_time = arrival_time;
+     this.weight = weight;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdJdsAhxEey61bc-5KK4OA" name="toString" specification="_mTWogAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdJdsQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return String.format(&quot;Mail Item:: ID: %6s | Arrival: %4d | Destination: %2d | Weight: %4d&quot;, id, arrival_time, destination_floor, weight);
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdJdsghxEey61bc-5KK4OA" name="getDestFloor" specification="_mTaS4AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdJdswhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return destination_floor;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdJdtAhxEey61bc-5KK4OA" name="getId" specification="_mTa58AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdJdtQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return id;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdKEwAhxEey61bc-5KK4OA" name="getArrivalTime" specification="_mTbhAAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdKEwQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return arrival_time;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdKEwghxEey61bc-5KK4OA" name="getWeight" specification="_mTbhAghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdKEwwhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return weight;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdKr0AhxEey61bc-5KK4OA" name="hashCode" specification="_mTcvIAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdKr0QhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>Integer hash0 = super.hashCode();
+		Integer hash = hashMap.get(hash0);
+		if (hash == null) { hash = count++; hashMap.put(hash0, hash); }
+		return hash;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mTVaYAhxEey61bc-5KK4OA" name="MailItem" method="_mdI2oAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mTWBcQhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mTWBcghxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_mdZVUwhxEey61bc-5KK4OA">
+            <body>Constructor for a MailItem
+     * @param dest_floor the destination floor intended for this mail item
+     * @param arrival_time the time that the mail arrived
+     * @param weight the weight of this mail item</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mTVaYQhxEey61bc-5KK4OA" name="dest_floor">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mTVaYghxEey61bc-5KK4OA" name="arrival_time">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mTWBcAhxEey61bc-5KK4OA" name="weight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mTWBcwhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTWogAhxEey61bc-5KK4OA" name="toString" method="_mdJdsAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mTXPkAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTaS4AhxEey61bc-5KK4OA" name="getDestFloor" method="_mdJdsghxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZVVAhxEey61bc-5KK4OA">
+            <body>*
+     * @return the destination floor of the mail item</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mTaS4QhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTa58AhxEey61bc-5KK4OA" name="getId" method="_mdJdtAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZVVQhxEey61bc-5KK4OA">
+            <body>*
+     * @return the ID of the mail item</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mTa58QhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTbhAAhxEey61bc-5KK4OA" name="getArrivalTime" method="_mdKEwAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZVVghxEey61bc-5KK4OA">
+            <body>*
+     * @return the arrival time of the mail item</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mTbhAQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTbhAghxEey61bc-5KK4OA" name="getWeight" method="_mdKEwghxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZVVwhxEey61bc-5KK4OA">
+            <body>*
+    * @return the weight of the mail item</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mTcIEAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTcvIAhxEey61bc-5KK4OA" name="hashCode" method="_mdKr0AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mTdWMAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mTfycAhxEey61bc-5KK4OA" name="MailPool">
+        <ownedComment xmi:id="_mdZ8YAhxEey61bc-5KK4OA">
+          <body>addToPool is called when there are mail items newly arrived at the building to add to the MailPool or
+if a robot returns with some undelivered items - these are added back to the MailPool.
+The data structure and algorithms used in the MailPool is your choice.
+ *</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_mcLNUAhxEey61bc-5KK4OA" name="pool" visibility="private" type="_maH-4AhxEey61bc-5KK4OA" association="_meN0sQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcNCgQhxEey61bc-5KK4OA" name="robots" visibility="private" type="_maH-4AhxEey61bc-5KK4OA" association="_meObwQhxEey61bc-5KK4OA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdLS4AhxEey61bc-5KK4OA" name="MailPool" specification="_mThAkAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdLS4QhxEey61bc-5KK4OA" type="_mTfycAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>// Start empty
+		pool = new LinkedList&lt;Item>();
+		robots = new LinkedList&lt;Robot>();
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdL58AhxEey61bc-5KK4OA" name="addToPool" specification="_maNecAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdL58QhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>Item item = new Item(mailItem);
+		pool.add(item);
+		pool.sort(new ItemComparator());
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdL58ghxEey61bc-5KK4OA" name="loadItemsToRobot" specification="_mTiOsAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>//List available robots
+		ListIterator&lt;Robot> i = robots.listIterator();
+		while (i.hasNext()) loadItem(i);
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdMhAAhxEey61bc-5KK4OA" name="loadItem" specification="_mbGPQAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdMhAQhxEey61bc-5KK4OA" name="i" type="_maLCMAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>Robot robot = i.next();
+		assert(robot.isEmpty());
+		// System.out.printf(&quot;P: %3d%n&quot;, pool.size());
+		ListIterator&lt;Item> j = pool.listIterator();
+		if (pool.size() > 0) {
+			if (robot.getClass() == RegRobot.class) {
+				try {
+					robot.addToHand(j.next().mailItem); // hand first as we want higher priority delivered first
+					j.remove();
+					if (pool.size() > 0) {
+						robot.addToTube(j.next().mailItem);
+						j.remove();
+					}
+					robot.dispatch(); // send the robot off if it has any items to deliver
+					i.remove();       // remove from mailPool queue
+					} catch (Exception e) { 
+			            throw e; 
+		        } 
+			}
+			else if (robot.getClass() == FastRobot.class) {
+				try {
+					robot.addToHand(j.next().mailItem); // hand first as we want higher priority delivered first
+					j.remove();       // remove from mailPool queue
+					robot.dispatch();
+					i.remove();
+				} catch (Exception e) { 
+					throw e; 
+				} 
+			}
+			else if (robot.getClass() == BulkRobot.class) {
+				try {
+					int k = 0;
+					while (pool.size() > 0 &amp;&amp; k &lt; 5) {
+						robot.addToTube(j.next().mailItem);
+						j.remove();
+						k++;
+					}
+					robot.dispatch(); // send the robot off if it has any items to deliver
+					i.remove();       // remove from mailPool queue
+					} catch (Exception e) { 
+			            throw e; 
+			        } 
+			}
+		}
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdMhAghxEey61bc-5KK4OA" name="registerWaiting" specification="_maOskAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdMhAwhxEey61bc-5KK4OA" name="robot" type="_mTyGUAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>// assumes won't be there already
+		robots.add(robot);
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mThAkAhxEey61bc-5KK4OA" name="MailPool" method="_mdLS4AhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mThnoAhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mThnoQhxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mThnoghxEey61bc-5KK4OA" type="_mTfycAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mTiOsAhxEey61bc-5KK4OA" name="loadItemsToRobot" method="_mdL58ghxEey61bc-5KK4OA" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZ8YghxEey61bc-5KK4OA">
+            <body>load up any waiting robots with mailItems, if any.</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_maNecAhxEey61bc-5KK4OA" name="addToPool" method="_mdL58AhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZ8YQhxEey61bc-5KK4OA">
+            <body>Adds an item to the mail pool
+     * @param mailItem the mail item being added.</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_maNecQhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_maOskAhxEey61bc-5KK4OA" name="registerWaiting" method="_mdMhAghxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdZ8YwhxEey61bc-5KK4OA">
+            <body>@param robot refers to a robot which has arrived back ready for more mailItems to deliver</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_maOskQhxEey61bc-5KK4OA" name="robot" type="_mTyGUAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mbGPQAhxEey61bc-5KK4OA" name="loadItem" visibility="private" method="_mdMhAAhxEey61bc-5KK4OA" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mbGPQQhxEey61bc-5KK4OA" name="i" type="_maLCMAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_mTjc0AhxEey61bc-5KK4OA" name="Item" visibility="private">
+          <ownedAttribute xmi:id="_mcO3sAhxEey61bc-5KK4OA" name="destination" visibility="package">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_mcQF0QhxEey61bc-5KK4OA" name="mailItem" visibility="package" type="_mTS-IAhxEey61bc-5KK4OA" association="_mePC0QhxEey61bc-5KK4OA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdNIEAhxEey61bc-5KK4OA" name="Item" specification="_maPToAhxEey61bc-5KK4OA">
+            <ownedParameter xmi:id="_mdNIEQhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+            <ownedParameter xmi:id="_mdNIEghxEey61bc-5KK4OA" type="_mTjc0AhxEey61bc-5KK4OA" direction="return"/>
+            <language>java</language>
+            <body>destination = mailItem.getDestFloor();
+			this.mailItem = mailItem;
+		</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_maPToAhxEey61bc-5KK4OA" name="Item" method="_mdNIEAhxEey61bc-5KK4OA">
+            <eAnnotations xmi:id="_maRI0AhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+              <details xmi:id="_maRI0QhxEey61bc-5KK4OA" key="create"/>
+            </eAnnotations>
+            <ownedParameter xmi:id="_maPToQhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+            <ownedParameter xmi:id="_maRI0ghxEey61bc-5KK4OA" type="_mTjc0AhxEey61bc-5KK4OA" direction="return"/>
+          </ownedOperation>
+        </nestedClassifier>
+        <nestedClassifier xmi:type="uml:Class" xmi:id="_mTl5EAhxEey61bc-5KK4OA" name="ItemComparator">
+          <interfaceRealization xmi:id="_mbIEcAhxEey61bc-5KK4OA" client="_mTl5EAhxEey61bc-5KK4OA" supplier="_maJ0EAhxEey61bc-5KK4OA" contract="_maJ0EAhxEey61bc-5KK4OA"/>
+          <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdNvIAhxEey61bc-5KK4OA" name="compare" specification="_maSW8AhxEey61bc-5KK4OA">
+            <ownedParameter xmi:id="_mdNvIQhxEey61bc-5KK4OA" name="i1" type="_mTjc0AhxEey61bc-5KK4OA"/>
+            <ownedParameter xmi:id="_mdNvIghxEey61bc-5KK4OA" name="i2" type="_mTjc0AhxEey61bc-5KK4OA"/>
+            <ownedParameter xmi:id="_mdNvIwhxEey61bc-5KK4OA" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+            <language>java</language>
+            <body>int order = 0;
+			if (i1.destination &lt; i2.destination) {
+				order = 1;
+			} else if (i1.destination > i2.destination) {
+				order = -1;
+			}
+			return order;
+		</body>
+          </ownedBehavior>
+          <ownedOperation xmi:id="_maSW8AhxEey61bc-5KK4OA" name="compare" method="_mdNvIAhxEey61bc-5KK4OA">
+            <ownedParameter xmi:id="_maSW8QhxEey61bc-5KK4OA" name="i1" type="_mTjc0AhxEey61bc-5KK4OA"/>
+            <ownedParameter xmi:id="_maSW8ghxEey61bc-5KK4OA" name="i2" type="_mTjc0AhxEey61bc-5KK4OA"/>
+            <ownedParameter xmi:id="_maS-AAhxEey61bc-5KK4OA" direction="return">
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+            </ownedParameter>
+          </ownedOperation>
+        </nestedClassifier>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mTyGUAhxEey61bc-5KK4OA" name="Robot" isAbstract="true">
+        <ownedComment xmi:id="_mdZ8ZQhxEey61bc-5KK4OA">
+          <body>The robot delivers mail!</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_mcSiEAhxEey61bc-5KK4OA" name="INDIVIDUAL_MAX_WEIGHT" visibility="protected" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcSiEQhxEey61bc-5KK4OA" value="2000"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_mT1JoQhxEey61bc-5KK4OA" name="Robot">
+          <eAnnotations xmi:id="_mT1wsAhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mT1wsQhxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mT2XwAhxEey61bc-5KK4OA" type="_mTyGUAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mT2XwQhxEey61bc-5KK4OA" name="dispatch" isAbstract="true">
+          <ownedComment xmi:id="_mdZ8ZghxEey61bc-5KK4OA">
+            <body>This is called when a robot is assigned the mail items and ready to dispatch for the delivery</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mT2-0AhxEey61bc-5KK4OA" name="operate" isAbstract="true" raisedException="_mUDzIAhxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdajcAhxEey61bc-5KK4OA">
+            <body>This is called on every time step
+     * @throws ExcessiveDeliveryException if robot delivers more than the capacity of the tube without refilling</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mT3l4AhxEey61bc-5KK4OA" name="setDestination" visibility="package" isAbstract="true">
+          <ownedComment xmi:id="_mdajcQhxEey61bc-5KK4OA">
+            <body>Sets the route for the robot</body>
+          </ownedComment>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mT3l4QhxEey61bc-5KK4OA" name="moveTowards" visibility="package" isAbstract="true">
+          <ownedComment xmi:id="_mdajcghxEey61bc-5KK4OA">
+            <body>Generic function that moves the robot towards the destination
+     * @param destination the floor towards which the robot is moving</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mT4M8AhxEey61bc-5KK4OA" name="destination">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mT4M8QhxEey61bc-5KK4OA" name="getIdTube" isAbstract="true">
+          <ownedParameter xmi:id="_mT40AAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mT5bEAhxEey61bc-5KK4OA" name="getTube" isAbstract="true">
+          <ownedParameter xmi:id="_maa50AhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mT6pMAhxEey61bc-5KK4OA" name="isEmpty" isAbstract="true">
+          <ownedParameter xmi:id="_mT6pMQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mT7QQAhxEey61bc-5KK4OA" name="additionalLog" isAbstract="true">
+          <ownedParameter xmi:id="_mT7QQQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_maaSwAhxEey61bc-5KK4OA" name="changeState" visibility="package" isAbstract="true">
+          <ownedComment xmi:id="_mdajcwhxEey61bc-5KK4OA">
+            <body>Prints out the change in state
+     * @param nextState the state to which the robot is transitioning</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_maaSwQhxEey61bc-5KK4OA" name="nextState" type="_mTzUcAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_maa50QhxEey61bc-5KK4OA" name="addToHand" isAbstract="true" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_maa50ghxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mabg4AhxEey61bc-5KK4OA" name="addToTube" isAbstract="true" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mabg4QhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_mTzUcAhxEey61bc-5KK4OA" name="RobotState">
+          <ownedLiteral xmi:id="_mT0ikAhxEey61bc-5KK4OA" name="DELIVERING"/>
+          <ownedLiteral xmi:id="_mT0ikQhxEey61bc-5KK4OA" name="WAITING"/>
+          <ownedLiteral xmi:id="_mT1JoAhxEey61bc-5KK4OA" name="RETURNING"/>
+        </nestedClassifier>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mT9sgAhxEey61bc-5KK4OA" name="ServiceFee">
+        <ownedAttribute xmi:id="_mcTJIAhxEey61bc-5KK4OA" name="latestServiceFee" visibility="private" type="_maX2gQhxEey61bc-5KK4OA" association="_meQ4AQhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcTwMAhxEey61bc-5KK4OA" value="new HashMap&lt;Integer, Double>()"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcTwMghxEey61bc-5KK4OA" name="wifiModem" visibility="private" type="_maWoYAhxEey61bc-5KK4OA" association="_meSGIAhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcUXQQhxEey61bc-5KK4OA" name="sf" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdO9QAhxEey61bc-5KK4OA" name="ServiceFee" specification="_mT-6oAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdO9QQhxEey61bc-5KK4OA" name="mailRoom">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdO9QghxEey61bc-5KK4OA" type="_mT9sgAhxEey61bc-5KK4OA" direction="return">
+            <name xsi:nil="true"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>try {
+			this.wifiModem = WifiModem.getInstance(mailRoom);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdO9QwhxEey61bc-5KK4OA" name="retrieveServiceFee" specification="_mUAIwAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdO9RAhxEey61bc-5KK4OA" name="destFloor">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdO9RQhxEey61bc-5KK4OA" direction="return">
+            <name xsi:nil="true"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>/**
+		 * If the lookup request fails, the most recent service fee retrieved by any other robot for the same floor should be used. 
+		 * If no service fee retrieved for this floor before the value of the service fee should be 0.
+		 */
+		
+		sf = wifiModem.forwardCallToAPI_LookupPrice(destFloor);
+		if (sf > 0) {
+			latestServiceFee.put(destFloor, sf);
+		}
+		
+		else {
+			//System.out.println(&quot;Request Fails&quot;);
+			if (latestServiceFee.containsKey(destFloor)) {
+				sf = latestServiceFee.get(destFloor);
+				return sf;
+			}
+			else {
+				return 0;
+			}
+		}
+		
+		return sf;	
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mT-6oAhxEey61bc-5KK4OA" name="ServiceFee" method="_mdO9QAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mT_hsQhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mT_hsghxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_JqI8AAjXEey61bc-5KK4OA">
+            <body>forwardCallToAPI_LookupPrice(onFloor: int) -> the service fee
+	 * onFloor -> floor# that the robot is delivering a mail item
+	 * failed request -> forwardCallToAPI_LookupPrice get negative value 
+	 * @throws Exception</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mT_hsAhxEey61bc-5KK4OA" name="mailRoom">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mT_hswhxEey61bc-5KK4OA" type="_mT9sgAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUAIwAhxEey61bc-5KK4OA" name="retrieveServiceFee" method="_mdO9QwhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mUAIwQhxEey61bc-5KK4OA" name="destFloor">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mUAv0AhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mUX8MAhxEey61bc-5KK4OA" name="RegRobot">
+        <generalization xmi:id="_mamgAAhxEey61bc-5KK4OA" general="_mTyGUAhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcbE8AhxEey61bc-5KK4OA" name="R_BASE_RATE" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcbsAAhxEey61bc-5KK4OA" value="0.025"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcbsAQhxEey61bc-5KK4OA" name="delivery" visibility="private" type="_mUOLMAhxEey61bc-5KK4OA" association="_meVJcQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mccTEAhxEey61bc-5KK4OA" name="id" visibility="private" isLeaf="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcc6IAhxEey61bc-5KK4OA" name="current_state" visibility="private" type="_ma_hkAhxEey61bc-5KK4OA" association="_meWXkQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcdhMAhxEey61bc-5KK4OA" name="current_floor" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcdhMghxEey61bc-5KK4OA" name="destination_floor" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mceIQQhxEey61bc-5KK4OA" name="mailPool" visibility="private" type="_mTfycAhxEey61bc-5KK4OA" association="_meW-oQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcevUQhxEey61bc-5KK4OA" name="receivedDispatch" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcfWYQhxEey61bc-5KK4OA" name="unitCounter" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcf9cQhxEey61bc-5KK4OA" value="0"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mchLkAhxEey61bc-5KK4OA" name="maintainFee" visibility="private" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mchLkQhxEey61bc-5KK4OA" value="0"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mchyoAhxEey61bc-5KK4OA" name="num_RR" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcjAwAhxEey61bc-5KK4OA" name="deliveryItem" visibility="private" type="_mTS-IAhxEey61bc-5KK4OA" association="_meXlsQhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcjAwQhxEey61bc-5KK4OA" value="null"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcjn0QhxEey61bc-5KK4OA" name="tube" type="_mTS-IAhxEey61bc-5KK4OA" isReadOnly="true" association="_meYz0AhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mckO4AhxEey61bc-5KK4OA" value="null"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mckO4QhxEey61bc-5KK4OA" name="deliveryCounter" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mck18QhxEey61bc-5KK4OA" name="rServiceFee" visibility="private">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcldAQhxEey61bc-5KK4OA" name="serviceFee" visibility="private" type="_mT9sgAhxEey61bc-5KK4OA" association="_meZa4QhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcmEEAhxEey61bc-5KK4OA" name="configuration" visibility="private" type="_mUppAAhxEey61bc-5KK4OA" association="_meapAAhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcmEEQhxEey61bc-5KK4OA" value="Configuration.getInstance()"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdSAlAhxEey61bc-5KK4OA" name="RegRobot" specification="_majcsAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdSAlQhxEey61bc-5KK4OA" name="delivery" type="_mUOLMAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdSAlghxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdSAlwhxEey61bc-5KK4OA" name="number">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_mdSAmAhxEey61bc-5KK4OA" type="_mUX8MAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>super();
+		this.id = &quot;R&quot; + number;
+ 	current_state = RobotState.RETURNING;
+     current_floor = Building.getInstance().getMailroomLocationFloor();
+     this.delivery = delivery;
+     this.mailPool = mailPool;
+     this.receivedDispatch = false;
+     this.deliveryCounter = 0;
+     RegRobot.num_RR++;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdSAmQhxEey61bc-5KK4OA" name="dispatch" specification="_mUaYcAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>this.receivedDispatch = true;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdSnoAhxEey61bc-5KK4OA" name="operate" specification="_mUaYcQhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>switch(current_state) {
+ 		/** This state is triggered when the robot is returning to the mailroom after a delivery */
+ 		case RETURNING:
+ 			/** If its current position is at the mailroom, then the robot should change state */
+             if(current_floor == Building.getInstance().getMailroomLocationFloor()) {
+     			/** Tell the sorter the robot is ready */
+     			mailPool.registerWaiting(this);
+             	changeState(RobotState.WAITING);
+             } else {
+             	/** If the robot is not at the mailroom floor yet, then move towards it! */
+                 moveTowards(Building.getInstance().getMailroomLocationFloor());
+             	break;
+             }
+ 		case WAITING:
+             /** If the StorageTube is ready and the Robot is waiting in the mailroom then start the delivery */
+             if(!isEmpty() &amp;&amp; receivedDispatch) {
+             	receivedDispatch = false;
+             	deliveryCounter = 0; // reset delivery counter
+             	setDestination();
+             	changeState(RobotState.DELIVERING);
+             }
+             break;
+ 		case DELIVERING:
+ 			if(current_floor == destination_floor) { // If already here drop off either way
+                 /** Delivery complete, report this to the simulator! */
+ 				
+ 				//get service fee
+                 serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+                 rServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+ 				
+                 delivery.deliver(this, deliveryItem, additionalLog());
+                 deliveryItem = null;
+                 deliveryCounter++;
+                 if(deliveryCounter > 2) {  // Implies a simulation bug
+                 	throw new ExcessiveDeliveryException();
+                 }
+                 /** Check if want to return, i.e. if there is no item in the tube*/
+                 if(tube == null) {
+                 	changeState(RobotState.RETURNING);
+                 }
+                 else{
+                     /** If there is another item, set the robot's route to the location to deliver the item */
+                     deliveryItem = tube;
+                     tube = null;
+                     setDestination();
+                     changeState(RobotState.DELIVERING);
+                 }
+ 			} else {
+	        		/** The robot is not at the destination yet, move towards it! */
+	                moveTowards(destination_floor);
+ 			}
+             break;
+ 	}
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdSnoQhxEey61bc-5KK4OA" name="setDestination" specification="_mUa_gAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>/** Set the destination floor */
+     destination_floor = deliveryItem.getDestFloor();
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdSnoghxEey61bc-5KK4OA" name="moveTowards" specification="_mUbmkAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdSnowhxEey61bc-5KK4OA" name="destination">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>if(current_floor &lt; destination) {
+         current_floor++;
+     } else {
+         current_floor--;
+     }
+     RegRobot.addCounter();
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdSnpAhxEey61bc-5KK4OA" name="getIdTube" specification="_mUbmkghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdSnpQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return String.format(&quot;%s(%1d)&quot;, this.id, (tube == null ? 0 : 1));
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdSnpghxEey61bc-5KK4OA" name="changeState" specification="_mbTqoAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdSnpwhxEey61bc-5KK4OA" name="nextState" type="_ma_hkAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>assert(!(deliveryItem == null &amp;&amp; tube != null));
+ 	if (current_state != nextState) {
+         System.out.printf(&quot;T: %3d > %7s changed from %s to %s%n&quot;, Clock.Time(), getIdTube(), current_state, nextState);
+ 	}
+ 	current_state = nextState;
+ 	if(nextState == RobotState.DELIVERING) {
+         System.out.printf(&quot;T: %3d > %7s-> [%s]%n&quot;, Clock.Time(), getIdTube(), deliveryItem.toString());
+ 	}
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdTOsAhxEey61bc-5KK4OA" name="isEmpty" specification="_mUc0sAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdTOsQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return (deliveryItem == null &amp;&amp; tube == null);
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdTOsghxEey61bc-5KK4OA" name="addToHand" specification="_malR4AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdTOswhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>assert(deliveryItem == null);
+		deliveryItem = mailItem;
+		if (deliveryItem.weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdTOtAhxEey61bc-5KK4OA" name="addToTube" specification="_mal48AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdTOtQhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <language>java</language>
+          <body>assert(tube == null);
+		tube = mailItem;
+		if (tube.weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdTOtghxEey61bc-5KK4OA" name="addCounter" specification="_mUdbwAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>RegRobot.unitCounter++;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdT1wAhxEey61bc-5KK4OA" name="cal_Avg_time" specification="_mUdbwQhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdT1wQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>double avgtime;
+     avgtime = RegRobot.getUnitCounter() / RegRobot.getNum_RR();
+     return avgtime;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdT1wghxEey61bc-5KK4OA" name="getMaintainFee" specification="_mUeC0AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdT1wwhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>RegRobot.maintainFee = RegRobot.cal_Avg_time() * R_BASE_RATE ;
+     return maintainFee;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdUc0AhxEey61bc-5KK4OA" name="additionalLog" specification="_mUep4AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdUc0QhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
+     double total = rServiceFee + RegRobot.getMaintainFee();
+     if (feeCharging) {
+         return String.format(
+                 &quot;  | Service Fee:  %.2f| Maintenance: %.2f | Avg. Operating Time: %.2f  | Total Charge: %.2f &quot;,
+                 rServiceFee, RegRobot.getMaintainFee(), RegRobot.cal_Avg_time(), total);
+     }
+     else
+         return String.format(&quot;&quot;);
+		
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mUaYcAhxEey61bc-5KK4OA" name="dispatch" method="_mdSAmQhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mUaYcQhxEey61bc-5KK4OA" name="operate" method="_mdSnoAhxEey61bc-5KK4OA" raisedException="_mUDzIAhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mUa_gAhxEey61bc-5KK4OA" name="setDestination" visibility="package" method="_mdSnoQhxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mUbmkAhxEey61bc-5KK4OA" name="moveTowards" visibility="package" method="_mdSnoghxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_twhxEey61bc-5KK4OA">
+            <body>Generic function that moves the robot towards the destination
+     * @param destination the floor towards which the robot is moving</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mUbmkQhxEey61bc-5KK4OA" name="destination">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUbmkghxEey61bc-5KK4OA" name="getIdTube" method="_mdSnpAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mUcNoAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUc0sAhxEey61bc-5KK4OA" name="isEmpty" method="_mdTOsAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mUc0sQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUdbwAhxEey61bc-5KK4OA" name="addCounter" isStatic="true" method="_mdTOtghxEey61bc-5KK4OA"/>
+        <ownedOperation xmi:id="_mUdbwQhxEey61bc-5KK4OA" name="cal_Avg_time" isStatic="true" method="_mdT1wAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mUdbwghxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUeC0AhxEey61bc-5KK4OA" name="getMaintainFee" isStatic="true" method="_mdT1wghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mUeC0QhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUep4AhxEey61bc-5KK4OA" name="additionalLog" method="_mdUc0AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mUep4QhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_majcsAhxEey61bc-5KK4OA" name="RegRobot" method="_mdSAlAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_makDwAhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_makDwQhxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_majcsQhxEey61bc-5KK4OA" name="delivery" type="_mUOLMAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_majcsghxEey61bc-5KK4OA" name="mailPool" type="_mTfycAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_majcswhxEey61bc-5KK4OA" name="number">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_makDwghxEey61bc-5KK4OA" type="_mUX8MAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_malR4AhxEey61bc-5KK4OA" name="addToHand" method="_mdTOsghxEey61bc-5KK4OA" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_malR4QhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mal48AhxEey61bc-5KK4OA" name="addToTube" method="_mdTOtAhxEey61bc-5KK4OA" raisedException="_mUFoUAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mal48QhxEey61bc-5KK4OA" name="mailItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mbTqoAhxEey61bc-5KK4OA" name="changeState" visibility="package" method="_mdSnpghxEey61bc-5KK4OA">
+          <ownedComment xmi:id="_mdc_uAhxEey61bc-5KK4OA">
+            <body>Prints out the change in state
+     * @param nextState the state to which the robot is transitioning</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_mbTqoQhxEey61bc-5KK4OA" name="nextState" type="_ma_hkAhxEey61bc-5KK4OA"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ma_hkAhxEey61bc-5KK4OA" name="RobotState"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mdrCIAhxEey61bc-5KK4OA" name="" memberEnd="_mdrCIQhxEey61bc-5KK4OA _mbcNgAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mdrCIQhxEey61bc-5KK4OA" name="" type="_mR-vgAhxEey61bc-5KK4OA" association="_mdrCIAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mdrpMQhxEey61bc-5KK4OA" name="" memberEnd="_mdrpMghxEey61bc-5KK4OA _mbc0kAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mdrpMghxEey61bc-5KK4OA" name="" type="_mR-vgAhxEey61bc-5KK4OA" association="_mdrpMQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mdsQQQhxEey61bc-5KK4OA" name="" memberEnd="_mdsQQghxEey61bc-5KK4OA _mbf34QhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mdsQQghxEey61bc-5KK4OA" name="" type="_mSH5cAhxEey61bc-5KK4OA" association="_mdsQQQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mds3UQhxEey61bc-5KK4OA" name="" memberEnd="_mds3UghxEey61bc-5KK4OA _mbpB0AhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mds3UghxEey61bc-5KK4OA" name="" type="_mSXKAAhxEey61bc-5KK4OA" association="_mds3UQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mdteYQhxEey61bc-5KK4OA" name="" memberEnd="_mdteYghxEey61bc-5KK4OA _mbqP8QhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mdteYghxEey61bc-5KK4OA" name="" type="_mSXKAAhxEey61bc-5KK4OA" association="_mdteYQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mduFcQhxEey61bc-5KK4OA" name="" memberEnd="_mduFcghxEey61bc-5KK4OA _mbssMAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mduFcghxEey61bc-5KK4OA" name="" type="_mSXKAAhxEey61bc-5KK4OA" association="_mduFcQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mdusgQhxEey61bc-5KK4OA" name="" memberEnd="_mdusgghxEey61bc-5KK4OA _mbt6UAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mdusgghxEey61bc-5KK4OA" name="" type="_mSXKAAhxEey61bc-5KK4OA" association="_mdusgQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meF44QhxEey61bc-5KK4OA" name="" memberEnd="_meF44ghxEey61bc-5KK4OA _mbuhYQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meF44ghxEey61bc-5KK4OA" name="" type="_mSXKAAhxEey61bc-5KK4OA" association="_meF44QhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meHHAAhxEey61bc-5KK4OA" name="" memberEnd="_meHHAQhxEey61bc-5KK4OA _mbyy0QhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meHHAQhxEey61bc-5KK4OA" name="" type="_mSXKAAhxEey61bc-5KK4OA" association="_meHHAAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meHuEQhxEey61bc-5KK4OA" name="" memberEnd="_meHuEghxEey61bc-5KK4OA _mbzZ4QhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meHuEghxEey61bc-5KK4OA" name="" type="_mSXKAAhxEey61bc-5KK4OA" association="_meHuEQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meI8MQhxEey61bc-5KK4OA" name="" memberEnd="_meI8MghxEey61bc-5KK4OA _mb9K4QhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meI8MghxEey61bc-5KK4OA" name="" type="_mS25QAhxEey61bc-5KK4OA" association="_meI8MQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meKKUAhxEey61bc-5KK4OA" name="" memberEnd="_meKKUQhxEey61bc-5KK4OA _mb-ZAQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meKKUQhxEey61bc-5KK4OA" name="" type="_mS25QAhxEey61bc-5KK4OA" association="_meKKUAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meKxYAhxEey61bc-5KK4OA" name="" memberEnd="_meKxYQhxEey61bc-5KK4OA _mb_nIQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meKxYQhxEey61bc-5KK4OA" name="" type="_mS25QAhxEey61bc-5KK4OA" association="_meKxYAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meLYcAhxEey61bc-5KK4OA" name="" memberEnd="_meLYcQhxEey61bc-5KK4OA _mcA1QQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meLYcQhxEey61bc-5KK4OA" name="" type="_mS25QAhxEey61bc-5KK4OA" association="_meLYcAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meL_gQhxEey61bc-5KK4OA" name="" memberEnd="_meL_gghxEey61bc-5KK4OA _mcCqcQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meL_gghxEey61bc-5KK4OA" name="" type="_mS25QAhxEey61bc-5KK4OA" association="_meL_gQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meMmkQhxEey61bc-5KK4OA" name="" memberEnd="_meMmkghxEey61bc-5KK4OA _mcDRgQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meMmkghxEey61bc-5KK4OA" name="" type="_mS25QAhxEey61bc-5KK4OA" association="_meMmkQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meN0sQhxEey61bc-5KK4OA" name="" memberEnd="_meN0sghxEey61bc-5KK4OA _mcLNUAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meN0sghxEey61bc-5KK4OA" name="" type="_mTfycAhxEey61bc-5KK4OA" association="_meN0sQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meObwQhxEey61bc-5KK4OA" name="" memberEnd="_meObwghxEey61bc-5KK4OA _mcNCgQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meObwghxEey61bc-5KK4OA" name="" type="_mTfycAhxEey61bc-5KK4OA" association="_meObwQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mePC0QhxEey61bc-5KK4OA" name="" memberEnd="_mePC0ghxEey61bc-5KK4OA _mcQF0QhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mePC0ghxEey61bc-5KK4OA" name="" type="_mTjc0AhxEey61bc-5KK4OA" association="_mePC0QhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meQ4AQhxEey61bc-5KK4OA" name="" memberEnd="_meQ4AghxEey61bc-5KK4OA _mcTJIAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meQ4AghxEey61bc-5KK4OA" name="" type="_mT9sgAhxEey61bc-5KK4OA" association="_meQ4AQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meSGIAhxEey61bc-5KK4OA" name="" memberEnd="_meSGIQhxEey61bc-5KK4OA _mcTwMghxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meSGIQhxEey61bc-5KK4OA" name="" type="_mT9sgAhxEey61bc-5KK4OA" association="_meSGIAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meVJcQhxEey61bc-5KK4OA" name="" memberEnd="_meVJcghxEey61bc-5KK4OA _mcbsAQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meVJcghxEey61bc-5KK4OA" name="" type="_mUX8MAhxEey61bc-5KK4OA" association="_meVJcQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meWXkQhxEey61bc-5KK4OA" name="" memberEnd="_meWXkghxEey61bc-5KK4OA _mcc6IAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meWXkghxEey61bc-5KK4OA" name="" type="_mUX8MAhxEey61bc-5KK4OA" association="_meWXkQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meW-oQhxEey61bc-5KK4OA" name="" memberEnd="_meW-oghxEey61bc-5KK4OA _mceIQQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meW-oghxEey61bc-5KK4OA" name="" type="_mUX8MAhxEey61bc-5KK4OA" association="_meW-oQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meXlsQhxEey61bc-5KK4OA" name="" memberEnd="_meXlsghxEey61bc-5KK4OA _mcjAwAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meXlsghxEey61bc-5KK4OA" name="" type="_mUX8MAhxEey61bc-5KK4OA" association="_meXlsQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meYz0AhxEey61bc-5KK4OA" name="" memberEnd="_meYz0QhxEey61bc-5KK4OA _mcjn0QhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meYz0QhxEey61bc-5KK4OA" name="" type="_mUX8MAhxEey61bc-5KK4OA" association="_meYz0AhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meZa4QhxEey61bc-5KK4OA" name="" memberEnd="_meZa4ghxEey61bc-5KK4OA _mcldAQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meZa4ghxEey61bc-5KK4OA" name="" type="_mUX8MAhxEey61bc-5KK4OA" association="_meZa4QhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meapAAhxEey61bc-5KK4OA" name="" memberEnd="_meapAQhxEey61bc-5KK4OA _mcmEEAhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meapAQhxEey61bc-5KK4OA" name="" type="_mUX8MAhxEey61bc-5KK4OA" association="_meapAAhxEey61bc-5KK4OA"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mPpNMAhxEey61bc-5KK4OA" name="util">
+      <packagedElement xmi:type="uml:Class" xmi:id="_mUppAAhxEey61bc-5KK4OA" name="Configuration">
+        <generalization xmi:id="_mbWG4AhxEey61bc-5KK4OA" general="_marYgQhxEey61bc-5KK4OA"/>
+        <ownedAttribute xmi:id="_mcnSMAhxEey61bc-5KK4OA" name="SEED_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcnSMQhxEey61bc-5KK4OA" value="&quot;Seed&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcn5QAhxEey61bc-5KK4OA" name="REGULAR_ROBOTS_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcn5QQhxEey61bc-5KK4OA" value="&quot;Regular_Robots&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcogUAhxEey61bc-5KK4OA" name="FAST_ROBOTS_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcogUQhxEey61bc-5KK4OA" value="&quot;Fast_Robots&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcogUghxEey61bc-5KK4OA" name="BULK_ROBOTS_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcpHYAhxEey61bc-5KK4OA" value="&quot;Bulk_Robots&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcpHYQhxEey61bc-5KK4OA" name="MAIL_TO_CREATE_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcpHYghxEey61bc-5KK4OA" value="&quot;Mail_to_Create&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcpucAhxEey61bc-5KK4OA" name="MAIL_MAX_WEIGHT_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcpucQhxEey61bc-5KK4OA" value="&quot;Mail_Max_Weight&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcpucghxEey61bc-5KK4OA" name="MAIL_RECEIVING_LENGTH_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcqVgAhxEey61bc-5KK4OA" value="&quot;Mail_Receiving_Length&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcqVgQhxEey61bc-5KK4OA" name="FEE_CHARGING_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcq8kAhxEey61bc-5KK4OA" value="&quot;Fee_Charging&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcq8kQhxEey61bc-5KK4OA" name="N_FLOORS_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcq8kghxEey61bc-5KK4OA" value="&quot;Floors&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcrjoAhxEey61bc-5KK4OA" name="LOWEST_FLOOR_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcsKsAhxEey61bc-5KK4OA" value="&quot;Lowest_Floor&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcsKsQhxEey61bc-5KK4OA" name="MAILROOM_LOCATION_FLOOR_KEY" isLeaf="true" isStatic="true" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcsxwAhxEey61bc-5KK4OA" value="&quot;Mailroom_Location_Floor&quot;"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcsxwQhxEey61bc-5KK4OA" name="configuration" visibility="private" isStatic="true" type="_mUppAAhxEey61bc-5KK4OA" association="_mebQEQhxEey61bc-5KK4OA">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcsxwghxEey61bc-5KK4OA" value="null"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdVD4AhxEey61bc-5KK4OA" name="getInstance" specification="_mUreMAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdVD4QhxEey61bc-5KK4OA" type="_mUppAAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>if(configuration == null)
+     {
+         configuration = new Configuration();
+
+         try {
+             configuration.setUp();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+     }
+
+     return configuration;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdVq8AhxEey61bc-5KK4OA" name="setUp" specification="_mUsFQAhxEey61bc-5KK4OA">
+          <language>java</language>
+          <body>// Default properties
+     setProperty(N_FLOORS_KEY, &quot;10&quot;);
+     setProperty(LOWEST_FLOOR_KEY, &quot;1&quot;);
+     setProperty(MAILROOM_LOCATION_FLOOR_KEY, &quot;1&quot;);
+     setProperty(MAIL_TO_CREATE_KEY, &quot;80&quot;);
+     setProperty(FEE_CHARGING_KEY, &quot;false&quot;);
+
+     // Read properties
+     FileReader inStream = null;
+     try {
+         inStream = new FileReader(&quot;automail.properties&quot;);
+         load(inStream);
+     } finally {
+         if (inStream != null) {
+             inStream.close();
+         }
+     }
+
+     // Floors
+     int nFloors = Integer.parseInt(getProperty(N_FLOORS_KEY));
+     System.out.println(&quot;#Floors: &quot; + nFloors);
+
+     // Mail_to_Create
+     int mail_to_create = Integer.parseInt(getProperty(MAIL_TO_CREATE_KEY));
+     System.out.println(&quot;#Created mails: &quot; + mail_to_create);
+
+     // Max_mail_weight
+     int mail_max_weight = Integer.parseInt(getProperty(MAIL_MAX_WEIGHT_KEY));
+     System.out.println(&quot;#Maximum weight: &quot; + mail_max_weight);
+
+     // Last_Delivery_Time
+     int mail_receiving_length = Integer.parseInt(getProperty(MAIL_RECEIVING_LENGTH_KEY));
+     System.out.println(&quot;#Mail receiving length: &quot; + mail_receiving_length);
+
+     // Robots
+     int num_regular_robots = Integer.parseInt(getProperty(REGULAR_ROBOTS_KEY));
+     int num_fast_robots = Integer.parseInt(getProperty(FAST_ROBOTS_KEY));
+     int num_bulk_robots = Integer.parseInt(getProperty(BULK_ROBOTS_KEY));
+     int total_robots = num_regular_robots + num_fast_robots + num_bulk_robots;
+     System.out.println(&quot;#RegularRobots: &quot; + num_regular_robots);
+     System.out.println(&quot;#FastRobots: &quot; + num_fast_robots);
+     System.out.println(&quot;#BulkRobots: &quot; + num_bulk_robots);
+     System.out.println(&quot;#TotalRobots: &quot; + total_robots);
+     assert(total_robots > 0);
+
+     // Calculate charge for a service fee and a maintenance cost.
+     boolean fee_Charging = Boolean.parseBoolean(getProperty(FEE_CHARGING_KEY));
+     System.out.println(&quot;Is fee charging enabled: &quot; + fee_Charging);
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mUreMAhxEey61bc-5KK4OA" name="getInstance" isStatic="true" method="_mdVD4AhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_matNsAhxEey61bc-5KK4OA" type="_mUppAAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUsFQAhxEey61bc-5KK4OA" name="setUp" visibility="private" method="_mdVq8AhxEey61bc-5KK4OA" raisedException="_maqKYQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mUuhgAhxEey61bc-5KK4OA" name="ReportDelivery">
+        <ownedAttribute xmi:id="_mct_4AhxEey61bc-5KK4OA" name="deliveredItems" type="_mTS-IAhxEey61bc-5KK4OA" isReadOnly="true" association="_meb3IQhxEey61bc-5KK4OA">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mcum8QhxEey61bc-5KK4OA" value="*"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_mcxDMAhxEey61bc-5KK4OA" name="total_delay" visibility="private" isStatic="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_mcxDMQhxEey61bc-5KK4OA" value="0"/>
+        </ownedAttribute>
+        <interfaceRealization xmi:id="_ma0icAhxEey61bc-5KK4OA" client="_mUuhgAhxEey61bc-5KK4OA" supplier="_mUOLMAhxEey61bc-5KK4OA" contract="_mUOLMAhxEey61bc-5KK4OA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdWSAAhxEey61bc-5KK4OA" name="ReportDelivery" specification="_mUvvoAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdWSAQhxEey61bc-5KK4OA" type="_mUuhgAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>deliveredItems = new HashSet&lt;>();
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdWSAghxEey61bc-5KK4OA" name="deliver" specification="_ma1wkAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdWSAwhxEey61bc-5KK4OA" name="robot" type="_mTyGUAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdWSBAhxEey61bc-5KK4OA" name="deliveryItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdWSBQhxEey61bc-5KK4OA" name="additionalLog">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>if(!deliveredItems.contains(deliveryItem))
+     {
+         deliveredItems.add(deliveryItem);
+         System.out.printf(&quot;T: %3d > %7s-> Delivered(%4d) [%s%s]%n&quot;, Clock.Time(), robot.getIdTube(), deliveredItems.size(), deliveryItem.toString(), additionalLog);
+         // Calculate delivery score
+         total_delay += calculateDeliveryDelay(deliveryItem);
+     }
+     else{
+         try {
+             throw new MailAlreadyDeliveredException();
+         } catch (MailAlreadyDeliveredException e) {
+             e.printStackTrace();
+         }
+     }
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdW5EAhxEey61bc-5KK4OA" name="getTotal_delay" specification="_mUwWsAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdW5EQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return total_delay;
+ </body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdW5EghxEey61bc-5KK4OA" name="calculateDeliveryDelay" specification="_ma2-sQhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdW5EwhxEey61bc-5KK4OA" name="deliveryItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_mdW5FAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>// Penalty for longer delivery times
+     final double penalty = 1.2;
+     double priority_weight = 0;
+     // Take (delivery time - arrivalTime)**penalty * (1+sqrt(priority_weight))
+     return Math.pow(Clock.Time() - deliveryItem.getArrivalTime(),penalty)*(1+Math.sqrt(priority_weight));
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mUvvoAhxEey61bc-5KK4OA" name="ReportDelivery" method="_mdWSAAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mUvvoQhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mUvvoghxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mUvvowhxEey61bc-5KK4OA" type="_mUuhgAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_mUwWsAhxEey61bc-5KK4OA" name="getTotal_delay" method="_mdW5EAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mUw9wAhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_ma1wkAhxEey61bc-5KK4OA" name="deliver" method="_mdWSAghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_ma1wkQhxEey61bc-5KK4OA" name="robot" type="_mTyGUAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_ma1wkghxEey61bc-5KK4OA" name="deliveryItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_ma1wkwhxEey61bc-5KK4OA" name="additionalLog">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_ma2-sQhxEey61bc-5KK4OA" name="calculateDeliveryDelay" visibility="private" isStatic="true" method="_mdW5EghxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_ma3lwAhxEey61bc-5KK4OA" name="deliveryItem" type="_mTS-IAhxEey61bc-5KK4OA"/>
+          <ownedParameter xmi:id="_ma3lwQhxEey61bc-5KK4OA" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_mebQEQhxEey61bc-5KK4OA" name="" memberEnd="_mebQEghxEey61bc-5KK4OA _mcsxwQhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_mebQEghxEey61bc-5KK4OA" name="" type="_mUppAAhxEey61bc-5KK4OA" association="_mebQEQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_meb3IQhxEey61bc-5KK4OA" name="" memberEnd="_meb3IghxEey61bc-5KK4OA _mct_4AhxEey61bc-5KK4OA">
+        <ownedEnd xmi:id="_meb3IghxEey61bc-5KK4OA" name="" type="_mUuhgAhxEey61bc-5KK4OA" association="_meb3IQhxEey61bc-5KK4OA"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mP1acAhxEey61bc-5KK4OA" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_mP2BgAhxEey61bc-5KK4OA" name="util">
+        <packagedElement xmi:type="uml:Class" xmi:id="_mZvkYAhxEey61bc-5KK4OA" name="Stack"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_maFioAhxEey61bc-5KK4OA" name="Map"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_maGJsQhxEey61bc-5KK4OA" name="TreeMap"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_maH-4AhxEey61bc-5KK4OA" name="LinkedList"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_maJ0EAhxEey61bc-5KK4OA" name="Comparator"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_maLCMAhxEey61bc-5KK4OA" name="ListIterator"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_maX2gQhxEey61bc-5KK4OA" name="HashMap"/>
+        <packagedElement xmi:type="uml:Interface" xmi:id="_madWEAhxEey61bc-5KK4OA" name="Set"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_marYgQhxEey61bc-5KK4OA" name="Properties"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_mavp8AhxEey61bc-5KK4OA" name="Collections"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_mawRAQhxEey61bc-5KK4OA" name="HashSet"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_mbOLEAhxEey61bc-5KK4OA" name="Random"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_mbPZMAhxEey61bc-5KK4OA" name="ArrayList"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_mRLeQAhxEey61bc-5KK4OA" name="io">
+        <packagedElement xmi:type="uml:Class" xmi:id="_mao8QAhxEey61bc-5KK4OA" name="FileReader"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_maqKYQhxEey61bc-5KK4OA" name="IOException"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_mbJ5oAhxEey61bc-5KK4OA" name="lang">
+        <packagedElement xmi:type="uml:Class" xmi:id="_mbJ5oQhxEey61bc-5KK4OA" name="Exception"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_mbLu0AhxEey61bc-5KK4OA" name="Throwable"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mP2okAhxEey61bc-5KK4OA" name="exceptions">
+      <packagedElement xmi:type="uml:Class" xmi:id="_mUDzIAhxEey61bc-5KK4OA" name="ExcessiveDeliveryException">
+        <ownedComment xmi:id="_mdajdQhxEey61bc-5KK4OA">
+          <body>An exception thrown when the robot tries to deliver more items than its tube capacity without refilling.</body>
+        </ownedComment>
+        <generalization xmi:id="_mbMV4QhxEey61bc-5KK4OA" general="_mbLu0AhxEey61bc-5KK4OA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdPkUwhxEey61bc-5KK4OA" name="ExcessiveDeliveryException" specification="_mUEaMAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdPkVAhxEey61bc-5KK4OA" type="_mUDzIAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>super(&quot;Attempting to deliver more than 2 items in a single trip!!&quot;);
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mUEaMAhxEey61bc-5KK4OA" name="ExcessiveDeliveryException" method="_mdPkUwhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mUFBQAhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mUFBQQhxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mUFBQghxEey61bc-5KK4OA" type="_mUDzIAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mUFoUAhxEey61bc-5KK4OA" name="ItemTooHeavyException">
+        <ownedComment xmi:id="_mdajdghxEey61bc-5KK4OA">
+          <body>This exception is thrown when a robot takes a MailItem from its StorageTube which is too heavy for that robot</body>
+        </ownedComment>
+        <generalization xmi:id="_mbM88AhxEey61bc-5KK4OA" general="_mbJ5oQhxEey61bc-5KK4OA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdPkVQhxEey61bc-5KK4OA" name="ItemTooHeavyException" specification="_mUG2cAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdPkVghxEey61bc-5KK4OA" type="_mUFoUAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>super(&quot;Item too heavy! Dropped by robot.&quot;);
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mUG2cAhxEey61bc-5KK4OA" name="ItemTooHeavyException" method="_mdPkVQhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mUG2cQhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mUG2cghxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mUHdgAhxEey61bc-5KK4OA" type="_mUFoUAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_mUIEkAhxEey61bc-5KK4OA" name="MailAlreadyDeliveredException">
+        <ownedComment xmi:id="_mdajdwhxEey61bc-5KK4OA">
+          <body>An exception thrown when a mail that is already delivered attempts to be delivered again.</body>
+        </ownedComment>
+        <generalization xmi:id="_mbM88QhxEey61bc-5KK4OA" general="_mbLu0AhxEey61bc-5KK4OA"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_mdQLYAhxEey61bc-5KK4OA" name="MailAlreadyDeliveredException" specification="_mUJSsAhxEey61bc-5KK4OA">
+          <ownedParameter xmi:id="_mdQLYQhxEey61bc-5KK4OA" type="_mUIEkAhxEey61bc-5KK4OA" direction="return"/>
+          <language>java</language>
+          <body>super(&quot;This mail has already been delivered!&quot;);
+ </body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_mUJSsAhxEey61bc-5KK4OA" name="MailAlreadyDeliveredException" method="_mdQLYAhxEey61bc-5KK4OA">
+          <eAnnotations xmi:id="_mUJSsQhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_mUJSsghxEey61bc-5KK4OA" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_mUJSswhxEey61bc-5KK4OA" type="_mUIEkAhxEey61bc-5KK4OA" direction="return"/>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_mQqg4AhxEey61bc-5KK4OA" name="com">
+      <packagedElement xmi:type="uml:Package" xmi:id="_mQrH8AhxEey61bc-5KK4OA" name="unimelb">
+        <packagedElement xmi:type="uml:Package" xmi:id="_mQrH8QhxEey61bc-5KK4OA" name="swen30006">
+          <packagedElement xmi:type="uml:Package" xmi:id="_mQrH8ghxEey61bc-5KK4OA" name="wifimodem">
+            <packagedElement xmi:type="uml:Class" xmi:id="_maWoYAhxEey61bc-5KK4OA" name="WifiModem"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_k1-rkAhxEey61bc-5KK4OA">
+      <eAnnotations xmi:id="_k2DkEAhxEey61bc-5KK4OA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_k2KRwAhxEey61bc-5KK4OA" base_Package="_i6AuIAhxEey61bc-5KK4OA">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mTX2oAhxEey61bc-5KK4OA" base_Element="_mTWogAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Annotations xmi:id="_mTZr0AhxEey61bc-5KK4OA" base_Element="_mTWogAhxEey61bc-5KK4OA">
+    <annotations xmi:id="_mTZr0QhxEey61bc-5KK4OA" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mTdWMQhxEey61bc-5KK4OA" base_Element="_mTcvIAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Annotations xmi:id="_mTd9QAhxEey61bc-5KK4OA" base_Element="_mTcvIAhxEey61bc-5KK4OA">
+    <annotations xmi:id="_mTd9QQhxEey61bc-5KK4OA" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mTz7gAhxEey61bc-5KK4OA" base_Element="_mTzUcAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mT1wsghxEey61bc-5KK4OA" base_Element="_mT1JoQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mZxZkAhxEey61bc-5KK4OA" base_Element="_mZvkYAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mZ4HQAhxEey61bc-5KK4OA" base_Element="_mZ25IAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_maCfUAhxEey61bc-5KK4OA" base_Element="_maB4QQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maGJsAhxEey61bc-5KK4OA" base_Element="_maFioAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maHX0AhxEey61bc-5KK4OA" base_Element="_maGJsQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maJNAAhxEey61bc-5KK4OA" base_Element="_maH-4AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maKbIAhxEey61bc-5KK4OA" base_Element="_maJ0EAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maMQUAhxEey61bc-5KK4OA" base_Element="_maLCMAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_maS-AQhxEey61bc-5KK4OA" base_Element="_maSW8AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Annotations xmi:id="_maTlEAhxEey61bc-5KK4OA" base_Element="_maSW8AhxEey61bc-5KK4OA">
+    <annotations xmi:id="_maUMIAhxEey61bc-5KK4OA" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_maX2gAhxEey61bc-5KK4OA" base_Element="_maWoYAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maZEoAhxEey61bc-5KK4OA" base_Element="_maX2gQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maekMAhxEey61bc-5KK4OA" base_Element="_madWEAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maqKYAhxEey61bc-5KK4OA" base_Element="_mao8QAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_marYgAhxEey61bc-5KK4OA" base_Element="_maqKYQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_masmoAhxEey61bc-5KK4OA" base_Element="_marYgQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mawRAAhxEey61bc-5KK4OA" base_Element="_mavp8AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_maw4EAhxEey61bc-5KK4OA" base_Element="_mawRAQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_ma2XoAhxEey61bc-5KK4OA" base_Element="_ma1wkAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Annotations xmi:id="_ma2XoQhxEey61bc-5KK4OA" base_Element="_ma1wkAhxEey61bc-5KK4OA">
+    <annotations xmi:id="_ma2-sAhxEey61bc-5KK4OA" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_mbAIoAhxEey61bc-5KK4OA" base_Element="_ma_hkAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Generics xmi:id="_mbG2UAhxEey61bc-5KK4OA" genericsValue="Robot" base_Element="_mbGPQQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Generics xmi:id="_mbIrgAhxEey61bc-5KK4OA" genericsValue="Item" base_Element="_mbIEcAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mbKgsAhxEey61bc-5KK4OA" base_Element="_mbJ5oQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mbMV4AhxEey61bc-5KK4OA" base_Element="_mbLu0AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mbOyIAhxEey61bc-5KK4OA" base_Element="_mbOLEAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mbQAQAhxEey61bc-5KK4OA" base_Element="_mbPZMAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Generics xmi:id="_mbR1cAhxEey61bc-5KK4OA" genericsValue="Boolean,Integer" base_Element="_mbQnVAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Array xmi:id="_mbcNgghxEey61bc-5KK4OA" base_Element="_mbcNgAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbeCsAhxEey61bc-5KK4OA" base_Element="_mbdboAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbepwAhxEey61bc-5KK4OA" base_Element="_mbeCsQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbfQ0AhxEey61bc-5KK4OA" base_Element="_mbepwQhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mbfQ0QhxEey61bc-5KK4OA" name="getMailroomLocationFloor" method="_mc93gAhxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mbf34AhxEey61bc-5KK4OA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbge8AhxEey61bc-5KK4OA" base_Element="_mbf34QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbjiQQhxEey61bc-5KK4OA" base_Element="_mbjiQAhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mbkJUAhxEey61bc-5KK4OA" name="getUnitCounter" isStatic="true" method="_mc_FpAhxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mbkwYAhxEey61bc-5KK4OA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mblXcQhxEey61bc-5KK4OA" base_Element="_mbkwYQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbmlkAhxEey61bc-5KK4OA" base_Element="_mbl-gAhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mbnMoAhxEey61bc-5KK4OA" name="getNum_BR" isStatic="true" method="_mc_ssAhxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mbnzsAhxEey61bc-5KK4OA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbpo4AhxEey61bc-5KK4OA" base_Element="_mbpB0AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbqP8AhxEey61bc-5KK4OA" base_Element="_mbpo4QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbq3AAhxEey61bc-5KK4OA" base_Element="_mbqP8QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbreEQhxEey61bc-5KK4OA" base_Element="_mbreEAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbsFIQhxEey61bc-5KK4OA" base_Element="_mbsFIAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbssMQhxEey61bc-5KK4OA" base_Element="_mbssMAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbtTQQhxEey61bc-5KK4OA" base_Element="_mbtTQAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbuhYAhxEey61bc-5KK4OA" base_Element="_mbt6UAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbvIcAhxEey61bc-5KK4OA" base_Element="_mbuhYQhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mbw9oAhxEey61bc-5KK4OA" name="getTube" method="_mc_ssghxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mbxksAhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:Generics xmi:id="_mbvvgAhxEey61bc-5KK4OA" genericsValue="MailItem" base_Element="_mbuhYQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbyLwAhxEey61bc-5KK4OA" base_Element="_mbxksQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbyy0AhxEey61bc-5KK4OA" base_Element="_mbyLwQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mbzZ4AhxEey61bc-5KK4OA" base_Element="_mbyy0QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb0A8QhxEey61bc-5KK4OA" base_Element="_mbzZ4QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb4SYAhxEey61bc-5KK4OA" base_Element="_mb3rUQhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mb45cAhxEey61bc-5KK4OA" name="getUnitCounter" isStatic="true" method="_mdD-IAhxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mb45cQhxEey61bc-5KK4OA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb6uoAhxEey61bc-5KK4OA" base_Element="_mb5ggAhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mb7VsAhxEey61bc-5KK4OA" name="getMaintainFee" isStatic="true" method="_mdD-IghxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mb7VsQhxEey61bc-5KK4OA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb78wQhxEey61bc-5KK4OA" base_Element="_mb78wAhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mb8j0AhxEey61bc-5KK4OA" name="getNum_FR" isStatic="true" method="_mdD-JAhxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mb9K4AhxEey61bc-5KK4OA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb9x8AhxEey61bc-5KK4OA" base_Element="_mb9K4QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb-ZAAhxEey61bc-5KK4OA" base_Element="_mb9x8QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb_AEAhxEey61bc-5KK4OA" base_Element="_mb-ZAQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb_AEghxEey61bc-5KK4OA" base_Element="_mb_AEQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mb_nIAhxEey61bc-5KK4OA" base_Element="_mb_AEwhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcAOMAhxEey61bc-5KK4OA" base_Element="_mb_nIQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcA1QAhxEey61bc-5KK4OA" base_Element="_mcAOMQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcBcUAhxEey61bc-5KK4OA" base_Element="_mcA1QQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcCDYAhxEey61bc-5KK4OA" base_Element="_mcBcUQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcCqcAhxEey61bc-5KK4OA" base_Element="_mcCDYQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcDRgAhxEey61bc-5KK4OA" base_Element="_mcCqcQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcDRgwhxEey61bc-5KK4OA" base_Element="_mcDRgQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcFGsAhxEey61bc-5KK4OA" base_Element="_mcEfoAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcFtwAhxEey61bc-5KK4OA" base_Element="_mcFGsQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcG74AhxEey61bc-5KK4OA" base_Element="_mcGU0AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcHi8AhxEey61bc-5KK4OA" base_Element="_mcG74QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcIxEAhxEey61bc-5KK4OA" base_Element="_mcIKAAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcJYIQhxEey61bc-5KK4OA" base_Element="_mcIxEQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Generics xmi:id="_mcMbcAhxEey61bc-5KK4OA" genericsValue="Item" base_Element="_mcLNUAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcNCgAhxEey61bc-5KK4OA" base_Element="_mcLNUAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Generics xmi:id="_mcNpkAhxEey61bc-5KK4OA" genericsValue="Robot" base_Element="_mcNCgQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcOQoAhxEey61bc-5KK4OA" base_Element="_mcNCgQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcQF0AhxEey61bc-5KK4OA" base_Element="_mcO3sAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcQs4AhxEey61bc-5KK4OA" base_Element="_mcQF0QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcR7AAhxEey61bc-5KK4OA" base_Element="_mcRT8AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Generics xmi:id="_mcTJIQhxEey61bc-5KK4OA" genericsValue="Integer, Double" base_Element="_mcTJIAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcTwMQhxEey61bc-5KK4OA" base_Element="_mcTJIAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcUXQAhxEey61bc-5KK4OA" base_Element="_mcTwMghxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcUXQghxEey61bc-5KK4OA" base_Element="_mcUXQQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcVlYAhxEey61bc-5KK4OA" base_Element="_mcU-UAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcVlYghxEey61bc-5KK4OA" base_Element="_mcVlYQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcWzgAhxEey61bc-5KK4OA" base_Element="_mcWMcAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcXakAhxEey61bc-5KK4OA" base_Element="_mcWzgQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcXakghxEey61bc-5KK4OA" base_Element="_mcXakQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcYBoQhxEey61bc-5KK4OA" base_Element="_mcYBoAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcYosQhxEey61bc-5KK4OA" base_Element="_mcYosAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcZPwAhxEey61bc-5KK4OA" base_Element="_mcYosghxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Generics xmi:id="_mcZ20AhxEey61bc-5KK4OA" genericsValue="MailItem" base_Element="_mcZPwQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcad4AhxEey61bc-5KK4OA" base_Element="_mcZPwQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcbsAghxEey61bc-5KK4OA" base_Element="_mcbsAQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mccTEQhxEey61bc-5KK4OA" base_Element="_mccTEAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcc6IQhxEey61bc-5KK4OA" base_Element="_mcc6IAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcdhMQhxEey61bc-5KK4OA" base_Element="_mcdhMAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mceIQAhxEey61bc-5KK4OA" base_Element="_mcdhMghxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcevUAhxEey61bc-5KK4OA" base_Element="_mceIQQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcfWYAhxEey61bc-5KK4OA" base_Element="_mcevUQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcf9cAhxEey61bc-5KK4OA" base_Element="_mcfWYQhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mcgkgAhxEey61bc-5KK4OA" name="getUnitCounter" isStatic="true" method="_mdSAkAhxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mcgkgQhxEey61bc-5KK4OA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mchLkghxEey61bc-5KK4OA" base_Element="_mchLkAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mchyoQhxEey61bc-5KK4OA" base_Element="_mchyoAhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mciZsAhxEey61bc-5KK4OA" name="getNum_RR" isStatic="true" method="_mdSAkghxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mciZsQhxEey61bc-5KK4OA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcjn0AhxEey61bc-5KK4OA" base_Element="_mcjAwAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mck18AhxEey61bc-5KK4OA" base_Element="_mckO4QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcldAAhxEey61bc-5KK4OA" base_Element="_mck18QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcldAghxEey61bc-5KK4OA" base_Element="_mcldAQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcmEEghxEey61bc-5KK4OA" base_Element="_mcmEEAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mctY0AhxEey61bc-5KK4OA" base_Element="_mcsxwQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcum8AhxEey61bc-5KK4OA" base_Element="_mct_4AhxEey61bc-5KK4OA">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_mcvOAAhxEey61bc-5KK4OA" name="getDeliveredItems" method="_mdVq8QhxEey61bc-5KK4OA">
+      <ownedParameter xmi:id="_mcv1EAhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mcv1EQhxEey61bc-5KK4OA" value="*"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <UMLLabProfile:Annotations xmi:id="_mcwcIAhxEey61bc-5KK4OA" base_Element="_mcvOAAhxEey61bc-5KK4OA">
+    <annotations xmi:id="_mcwcIQhxEey61bc-5KK4OA" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_mcxqQAhxEey61bc-5KK4OA" base_Element="_mcxDMAhxEey61bc-5KK4OA"/>
+  <uml:OpaqueBehavior xmi:id="_mc93gAhxEey61bc-5KK4OA" name="getMailroomLocationFloor" specification="_mbfQ0QhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mc-ekAhxEey61bc-5KK4OA" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return mailroomLocationFloor;
+ </body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mc_FpAhxEey61bc-5KK4OA" name="getUnitCounter" specification="_mbkJUAhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mc_FpQhxEey61bc-5KK4OA" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return unitCounter;
+ </body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mc_ssAhxEey61bc-5KK4OA" name="getNum_BR" specification="_mbnMoAhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mc_ssQhxEey61bc-5KK4OA" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return num_BR;
+ </body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mc_ssghxEey61bc-5KK4OA" name="getTube" specification="_mbw9oAhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mc_sswhxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return"/>
+    <language>java</language>
+    <body>return tube.peek();
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mdD-IAhxEey61bc-5KK4OA" name="getUnitCounter" specification="_mb45cAhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mdD-IQhxEey61bc-5KK4OA" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return unitCounter;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mdD-IghxEey61bc-5KK4OA" name="getMaintainFee" specification="_mb7VsAhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mdD-IwhxEey61bc-5KK4OA" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>FastRobot.maintainFee = FastRobot.cal_Avg_time() * F_BASE_RATE ;
+		return maintainFee;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mdD-JAhxEey61bc-5KK4OA" name="getNum_FR" specification="_mb8j0AhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mdD-JQhxEey61bc-5KK4OA" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return num_FR;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mdSAkAhxEey61bc-5KK4OA" name="getUnitCounter" specification="_mcgkgAhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mdSAkQhxEey61bc-5KK4OA" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return unitCounter;
+ </body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mdSAkghxEey61bc-5KK4OA" name="getNum_RR" specification="_mciZsAhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mdSAkwhxEey61bc-5KK4OA" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return num_RR;
+ </body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_mdVq8QhxEey61bc-5KK4OA" name="getDeliveredItems" specification="_mcvOAAhxEey61bc-5KK4OA">
+    <ownedParameter xmi:id="_mdVq8ghxEey61bc-5KK4OA" type="_mTS-IAhxEey61bc-5KK4OA" direction="return">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mdVq8whxEey61bc-5KK4OA" value="*"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return Collections.unmodifiableSet(deliveredItems);
+ </body>
+  </uml:OpaqueBehavior>
+  <UMLLabProfile:Reference xmi:id="_mdrpMAhxEey61bc-5KK4OA" base_Element="_mdrCIAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mdsQQAhxEey61bc-5KK4OA" base_Element="_mdrpMQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mds3UAhxEey61bc-5KK4OA" base_Element="_mdsQQQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mdteYAhxEey61bc-5KK4OA" base_Element="_mds3UQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mduFcAhxEey61bc-5KK4OA" base_Element="_mdteYQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mdusgAhxEey61bc-5KK4OA" base_Element="_mduFcQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meF44AhxEey61bc-5KK4OA" base_Element="_mdusgQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meGf8AhxEey61bc-5KK4OA" base_Element="_meF44QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meHuEAhxEey61bc-5KK4OA" base_Element="_meHHAAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meI8MAhxEey61bc-5KK4OA" base_Element="_meHuEQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meJjQAhxEey61bc-5KK4OA" base_Element="_meI8MQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meKKUghxEey61bc-5KK4OA" base_Element="_meKKUAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meKxYghxEey61bc-5KK4OA" base_Element="_meKxYAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meL_gAhxEey61bc-5KK4OA" base_Element="_meLYcAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meMmkAhxEey61bc-5KK4OA" base_Element="_meL_gQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meN0sAhxEey61bc-5KK4OA" base_Element="_meMmkQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meObwAhxEey61bc-5KK4OA" base_Element="_meN0sQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mePC0AhxEey61bc-5KK4OA" base_Element="_meObwQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mePp4AhxEey61bc-5KK4OA" base_Element="_mePC0QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meQ4AAhxEey61bc-5KK4OA" base_Element="_meQQ8AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meRfEAhxEey61bc-5KK4OA" base_Element="_meQ4AQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meStMAhxEey61bc-5KK4OA" base_Element="_meSGIAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meTUQAhxEey61bc-5KK4OA" base_Element="_meStMQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meT7UAhxEey61bc-5KK4OA" base_Element="_meTUQQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meVJcAhxEey61bc-5KK4OA" base_Element="_meUiYAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meWXkAhxEey61bc-5KK4OA" base_Element="_meVJcQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meW-oAhxEey61bc-5KK4OA" base_Element="_meWXkQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meXlsAhxEey61bc-5KK4OA" base_Element="_meW-oQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meYMwAhxEey61bc-5KK4OA" base_Element="_meXlsQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meZa4AhxEey61bc-5KK4OA" base_Element="_meYz0AhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meaB8AhxEey61bc-5KK4OA" base_Element="_meZa4QhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_mebQEAhxEey61bc-5KK4OA" base_Element="_meapAAhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meb3IAhxEey61bc-5KK4OA" base_Element="_mebQEQhxEey61bc-5KK4OA"/>
+  <UMLLabProfile:Reference xmi:id="_meceMAhxEey61bc-5KK4OA" base_Element="_meb3IQhxEey61bc-5KK4OA"/>
+</xmi:XMI>

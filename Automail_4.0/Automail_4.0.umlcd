@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_i_qqMAhxEey61bc-5KK4OA">
+  <modelElement href="Automail_4.0.uml#_i6AuIAhxEey61bc-5KK4OA"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tGHh4AjWEey61bc-5KK4OA">
+    <modelElement href="Automail_4.0.uml#_meHHAAhxEey61bc-5KK4OA"/>
+    <stereotypes xmi:id="_tGHh4QjWEey61bc-5KK4OA" name="Reference">
+      <modelElement href="Automail_4.0.uml#_meHuEAhxEey61bc-5KK4OA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tGHh4gjWEey61bc-5KK4OA" text=""/>
+    <sourceRole xmi:id="_tGHh4wjWEey61bc-5KK4OA" aggregationKind="NONE" name="">
+      <modelElement href="Automail_4.0.uml#_meHHAQhxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGHh5AjWEey61bc-5KK4OA" label="+"/>
+      <cardinality xmi:id="_tGHh5QjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tGHh5gjWEey61bc-5KK4OA" aggregationKind="NONE" name="serviceFee" navigable="true">
+      <modelElement href="Automail_4.0.uml#_mbyy0QhxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGHh5wjWEey61bc-5KK4OA" label="-"/>
+      <cardinality xmi:id="_tGHh6AjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tGJ-IAjWEey61bc-5KK4OA">
+    <modelElement href="Automail_4.0.uml#_meL_gQhxEey61bc-5KK4OA"/>
+    <stereotypes xmi:id="_tGJ-IQjWEey61bc-5KK4OA" name="Reference">
+      <modelElement href="Automail_4.0.uml#_meMmkAhxEey61bc-5KK4OA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tGJ-IgjWEey61bc-5KK4OA" text=""/>
+    <sourceRole xmi:id="_tGJ-IwjWEey61bc-5KK4OA" aggregationKind="NONE" name="">
+      <modelElement href="Automail_4.0.uml#_meL_gghxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGJ-JAjWEey61bc-5KK4OA" label="+"/>
+      <cardinality xmi:id="_tGJ-JQjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tGJ-JgjWEey61bc-5KK4OA" aggregationKind="NONE" name="serviceFee" navigable="true">
+      <modelElement href="Automail_4.0.uml#_mcCqcQhxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGJ-JwjWEey61bc-5KK4OA" label="-"/>
+      <cardinality xmi:id="_tGJ-KAjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tGMaYAjWEey61bc-5KK4OA">
+    <modelElement href="Automail_4.0.uml#_meZa4QhxEey61bc-5KK4OA"/>
+    <stereotypes xmi:id="_tGMaYQjWEey61bc-5KK4OA" name="Reference">
+      <modelElement href="Automail_4.0.uml#_meaB8AhxEey61bc-5KK4OA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tGMaYgjWEey61bc-5KK4OA" text=""/>
+    <sourceRole xmi:id="_tGMaYwjWEey61bc-5KK4OA" aggregationKind="NONE" name="">
+      <modelElement href="Automail_4.0.uml#_meZa4ghxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGMaZAjWEey61bc-5KK4OA" label="+"/>
+      <cardinality xmi:id="_tGMaZQjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tGMaZgjWEey61bc-5KK4OA" aggregationKind="NONE" name="serviceFee" navigable="true">
+      <modelElement href="Automail_4.0.uml#_mcldAQhxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGMaZwjWEey61bc-5KK4OA" label="-"/>
+      <cardinality xmi:id="_tGMaaAjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tGU9QAjWEey61bc-5KK4OA">
+    <modelElement href="Automail_4.0.uml#_meQ4AQhxEey61bc-5KK4OA"/>
+    <stereotypes xmi:id="_tGU9QQjWEey61bc-5KK4OA" name="Reference">
+      <modelElement href="Automail_4.0.uml#_meRfEAhxEey61bc-5KK4OA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tGU9QgjWEey61bc-5KK4OA" text=""/>
+    <sourceRole xmi:id="_tGU9QwjWEey61bc-5KK4OA" aggregationKind="NONE" name="">
+      <modelElement href="Automail_4.0.uml#_meQ4AghxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGU9RAjWEey61bc-5KK4OA" label="+"/>
+      <cardinality xmi:id="_tGU9RQjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tGU9RgjWEey61bc-5KK4OA" aggregationKind="NONE" name="latestServiceFee" navigable="true">
+      <modelElement href="Automail_4.0.uml#_mcTJIAhxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGU9RwjWEey61bc-5KK4OA" label="-"/>
+      <cardinality xmi:id="_tGU9SAjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_tGYnoAjWEey61bc-5KK4OA">
+    <modelElement href="Automail_4.0.uml#_meSGIAhxEey61bc-5KK4OA"/>
+    <stereotypes xmi:id="_tGYnoQjWEey61bc-5KK4OA" name="Reference">
+      <modelElement href="Automail_4.0.uml#_meStMAhxEey61bc-5KK4OA"/>
+    </stereotypes>
+    <nameVisual xmi:id="_tGYnogjWEey61bc-5KK4OA" text=""/>
+    <sourceRole xmi:id="_tGYnowjWEey61bc-5KK4OA" aggregationKind="NONE" name="">
+      <modelElement href="Automail_4.0.uml#_meSGIQhxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGYnpAjWEey61bc-5KK4OA" label="+"/>
+      <cardinality xmi:id="_tGYnpQjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_tGYnpgjWEey61bc-5KK4OA" aggregationKind="NONE" name="wifiModem" navigable="true">
+      <modelElement href="Automail_4.0.uml#_mcTwMghxEey61bc-5KK4OA"/>
+      <visibility xmi:id="_tGYnpwjWEey61bc-5KK4OA" label="-"/>
+      <cardinality xmi:id="_tGYnqAjWEey61bc-5KK4OA" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
