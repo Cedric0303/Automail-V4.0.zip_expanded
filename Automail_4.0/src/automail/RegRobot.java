@@ -19,9 +19,10 @@ public class RegRobot extends Robot {
     private boolean receivedDispatch;
 
 
-    private static int unitCounter = 0;
-    private static double maintainFee =0;
+    private static int unitCounter_R = 0;
+    private static double maintainFee_R =0;
     private static int num_RR;
+    private static double avgTime_R;
     
     private MailItem deliveryItem = null;
     private MailItem tube = null;
@@ -41,7 +42,6 @@ public class RegRobot extends Robot {
         this.mailPool = mailPool;
         this.receivedDispatch = false;
         this.deliveryCounter = 0;
-        this.rServiceFee = 0;
         RegRobot.num_RR++;
 	}
 	
@@ -123,7 +123,7 @@ public class RegRobot extends Robot {
         } else {
             current_floor--;
         }
-        RegRobot.addCounter();
+        RegRobot.unitCounter_R++;
     }
     
     public String getIdTube() {
@@ -165,38 +165,24 @@ public class RegRobot extends Robot {
 		if (tube.weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
 	}
 
-    public static int getUnitCounter() {
-        return unitCounter;
-    }
-
-    public static void addCounter() {
-        RegRobot.unitCounter++;
-    }
-
-    public static int getNum_RR() {
-        return num_RR;
-    }
-
-    public static double cal_Avg_time() {
-        double avgtime;
-        avgtime = RegRobot.getUnitCounter() / RegRobot.getNum_RR();
-        return avgtime;
-    }
-    public static double getMaintainFee() {
-        RegRobot.maintainFee = RegRobot.cal_Avg_time() * R_BASE_RATE ;
-        return maintainFee;
-    }
-	
+    /**
+     * implement a new method to print out the additionalLog in the console
+     * including the service fee, average time and maintain fee of each type
+     * of robots.
+     *
+     */
     public String additionalLog() {
         boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
-        double total = rServiceFee + RegRobot.getMaintainFee();
+        /* calculate the required INFO*/
+        RegRobot.avgTime_R = (float)RegRobot.unitCounter_R / (float)RegRobot.num_RR;
+        RegRobot.maintainFee_R = RegRobot.avgTime_R* R_BASE_RATE ;
+        double total = rServiceFee + RegRobot.maintainFee_R;
         if (feeCharging) {
             return String.format(
-                    "  | Service Fee:  %.2f| Maintenance: %.2f | Avg. Operating Time: %.2f  | Total Charge: %.2f ",
-                    rServiceFee, RegRobot.getMaintainFee(), RegRobot.cal_Avg_time(), total);
+                    " | Service Fee:  %.2f | Maintenance:  %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f",
+                    rServiceFee, RegRobot.maintainFee_R, RegRobot.avgTime_R, total);
         }
         else
             return String.format("");
-		
-	}
+    }
 }

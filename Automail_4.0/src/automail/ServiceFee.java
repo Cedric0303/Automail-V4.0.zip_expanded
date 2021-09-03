@@ -26,13 +26,6 @@ public class ServiceFee {
 		}
 		
 	}
-//	public void record(int destFloor, int serviceFee) {
-//		if (latestServiceFee.containsKey(destFloor)) {
-//			//update to the latest one
-//		}else {
-//			latestServiceFee.put(destFloor, serviceFee);
-//		}
-//	}
 	
 	public double retrieveServiceFee(int destFloor) {
 		/**
@@ -46,7 +39,7 @@ public class ServiceFee {
 		}
 		
 		else {
-			System.out.println("Request Fails");
+			// System.out.println("Request Fails");
 			if (latestServiceFee.containsKey(destFloor)) {
 				sf = latestServiceFee.get(destFloor);
 				return sf;

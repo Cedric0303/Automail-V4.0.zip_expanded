@@ -60,4 +60,6 @@ public abstract class Robot {
 	public abstract void addToTube(MailItem mailItem) throws ItemTooHeavyException;
 
 	public abstract String additionalLog();
+
+
 }

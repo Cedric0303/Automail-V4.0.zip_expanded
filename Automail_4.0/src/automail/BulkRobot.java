@@ -13,9 +13,10 @@ public class BulkRobot extends Robot {
 	private static final int INDIVIDUAL_MAX_TUBE_SIZE = 5;
 
     private static final double B_BASE_RATE = 0.01;
-    private static int unitCounter = 0;
-    private static double maintainFee =0;
+    private static int unitCounter_B = 0;
+    private static double maintainFee_B =0;
     private static int num_BR = 0;
+    private static double avgTime_B = 0;
 
 
 
@@ -46,7 +47,6 @@ public class BulkRobot extends Robot {
         this.receivedDispatch = false;
         this.tube = new Stack<MailItem>();
         this.deliveryCounter = 0;
-        this.bServiceFee = 0;
         BulkRobot.num_BR++;
 	}
 
@@ -82,17 +82,16 @@ public class BulkRobot extends Robot {
     			if(current_floor == destination_floor) { // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
     				
-                    
-                    delivery.deliver(this, deliveryItem, additionalLog());
-                    deliveryItem = null;
                     deliveryCounter++;
-                    
                     //get service fee
                     if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
-                        serviceFee =  new ServiceFee(Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
-                        bServiceFee = serviceFee.retrieveServiceFee(destination_floor) * deliveryCounter;
-                    }
-                    
+                        serviceFee = new ServiceFee(
+                            Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+                            bServiceFee = serviceFee.retrieveServiceFee(destination_floor) * deliveryCounter;
+                        }
+                        
+                    delivery.deliver(this, deliveryItem, additionalLog());
+                    deliveryItem = null;
                     
                    if (deliveryCounter > INDIVIDUAL_MAX_TUBE_SIZE) {  // Implies a simulation bug
                    	throw new ExcessiveDeliveryException();
@@ -125,7 +124,7 @@ public class BulkRobot extends Robot {
      * @param destination the floor towards which the robot is moving
      */
     void moveTowards(int destination) {
-        BulkRobot.addCounter();
+        BulkRobot.unitCounter_B++;
         if(current_floor < destination) {
             current_floor++;
         } else {
@@ -169,38 +168,24 @@ public class BulkRobot extends Robot {
 		if (tube.peek().weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
 	}
 
-    public static int getUnitCounter() {
-        return unitCounter;
-    }
-
-    public static void addCounter() {
-        BulkRobot.unitCounter++;
-    }
-
-    public static int getNum_BR() {
-        return num_BR;
-    }
-
-    public static double cal_Avg_time() {
-        double avgtime;
-        avgtime = BulkRobot.getUnitCounter() / BulkRobot.getNum_BR();
-        return avgtime;
-    }
-    public static double getMaintainFee() {
-        BulkRobot.maintainFee = BulkRobot.cal_Avg_time() * B_BASE_RATE ;
-        return maintainFee;
-    }
-
-
+    /**
+     * implement a new method to print out the additionalLog in the console
+     * including the service fee, average time and maintain fee of each type
+     * of robots.
+     *
+     */
     public String additionalLog() {
         boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
-        double total = bServiceFee + BulkRobot.getMaintainFee();
+        /* calculate the required INFO*/
+        BulkRobot.avgTime_B = (float) BulkRobot.unitCounter_B / (float) BulkRobot.num_BR;
+        BulkRobot.maintainFee_B = BulkRobot.avgTime_B * B_BASE_RATE ;
+        double total = bServiceFee + BulkRobot.maintainFee_B;
         if (feeCharging) {
             return String.format(
-                    "  | Service Fee:  %.2f| Maintenance: %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f ",
-                    bServiceFee, BulkRobot.getMaintainFee(), BulkRobot.cal_Avg_time(), total);
+                    " | Service Fee:  %.2f | Maintenance:  %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f",
+                    bServiceFee, BulkRobot.maintainFee_B, BulkRobot.avgTime_B, total);
         }
         else
             return String.format("");
-	}
+    }
 }
