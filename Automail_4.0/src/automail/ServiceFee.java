@@ -39,7 +39,11 @@ public class ServiceFee {
 		}
 		
 		else {
+<<<<<<< HEAD
 			// System.out.println("Request Fails");
+=======
+			//System.out.println("Request Fails");
+>>>>>>> 6510f37f78f95f31d0771176aa683d32dcc47487
 			if (latestServiceFee.containsKey(destFloor)) {
 				sf = latestServiceFee.get(destFloor);
 				return sf;
@@ -52,7 +56,7 @@ public class ServiceFee {
 		return sf;	
 	}
 	
-	public double getServiceFee(int destFloor) {
-		return sf;
-	}
+//	public double getServiceFee(int destFloor) {
+//		return sf;
+//	}
 }
