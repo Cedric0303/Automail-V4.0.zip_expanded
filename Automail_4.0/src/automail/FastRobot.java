@@ -10,11 +10,6 @@ public class FastRobot extends Robot {
 
 	private static final int INDIVIDUAL_MAX_MOVE_SPEED = 3;
 	private static final double F_BASE_RATE = 0.05;
-	private static int unitCounter_F;
-	private static double maintainFee_F;
-	private static double avgTime_F;
-	private static int num_FR;
-
 
 	private IMailDelivery delivery;
     private final String id;
@@ -24,11 +19,11 @@ public class FastRobot extends Robot {
     private MailPool mailPool;
     private boolean receivedDispatch;
     
-    
     private MailItem deliveryItem = null;
     
     private int deliveryCounter;
-    
+	private static Maintenance maintenance = new Maintenance();
+
     private double fServiceFee;
     private ServiceFee serviceFee;
     private Configuration configuration = Configuration.getInstance();
@@ -42,7 +37,7 @@ public class FastRobot extends Robot {
         this.mailPool = mailPool;
         this.receivedDispatch = false;
         this.deliveryCounter = 0;
-		FastRobot.num_FR ++;
+		maintenance.addNum();
 	}
 	
 	public void dispatch() {
@@ -77,11 +72,7 @@ public class FastRobot extends Robot {
                     /** Delivery complete, report this to the simulator! */
     				
     				//get service fee
-					if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
-						serviceFee = new ServiceFee(
-								Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
-						fServiceFee = serviceFee.retrieveServiceFee(destination_floor);
-					}
+					getServiceFee();
                     delivery.deliver(this, deliveryItem, additionalLog());
                     deliveryItem = null;
                     deliveryCounter++;
@@ -119,7 +110,7 @@ public class FastRobot extends Robot {
         } else {
     		current_floor -= INDIVIDUAL_MAX_MOVE_SPEED;
         }
-		FastRobot.unitCounter_F++;
+		maintenance.addUnitCounter();
     }
     
     public String getIdTube() {
@@ -156,24 +147,32 @@ public class FastRobot extends Robot {
 	}
 	public void addToTube(MailItem mailItem) {
 	}
+	public void getServiceFee(){
+		if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
+			serviceFee = new ServiceFee(
+					Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+			fServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+		}
 
+	}
 	/**
 	 * implement a new method to print out the additionalLog in the console
 	 * including the service fee, average time and maintain fee of each type
 	 * of robots.
 	 *
 	 */
+	public double getTotal(){
+		double total = fServiceFee + maintenance.getMaintenanceFee(F_BASE_RATE);
+		return total;
+	}
+
 	public String additionalLog() {
 		boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
 		/* calculate the required INFO*/
-		FastRobot.avgTime_F = (float)FastRobot.unitCounter_F / (float)FastRobot.num_FR;
-		FastRobot.maintainFee_F = FastRobot.avgTime_F* F_BASE_RATE ;
-
-		double total = fServiceFee + FastRobot.maintainFee_F;
 		if (feeCharging) {
 			return String.format(
 					" | Service Fee:  %.2f | Maintenance:  %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f",
-					fServiceFee, FastRobot.maintainFee_F, FastRobot.avgTime_F, total);
+					fServiceFee, maintenance.getMaintenanceFee(F_BASE_RATE), maintenance.getAvgTime(), getTotal());
 		}
 		else
 			return String.format("");

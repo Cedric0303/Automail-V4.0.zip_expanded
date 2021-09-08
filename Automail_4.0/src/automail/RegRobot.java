@@ -7,9 +7,8 @@ import simulation.IMailDelivery;
 import util.Configuration;
 
 public class RegRobot extends Robot {
-
     private static final double R_BASE_RATE = 0.025;
-		
+
     private IMailDelivery delivery;
     private final String id;
     private RobotState current_state;
@@ -17,12 +16,6 @@ public class RegRobot extends Robot {
     private int destination_floor;
     private MailPool mailPool;
     private boolean receivedDispatch;
-
-
-    private static int unitCounter_R = 0;
-    private static double maintainFee_R =0;
-    private static int num_RR;
-    private static double avgTime_R;
     
     private MailItem deliveryItem = null;
     private MailItem tube = null;
@@ -31,6 +24,8 @@ public class RegRobot extends Robot {
     
     private double rServiceFee;
     private ServiceFee serviceFee;
+    private static Maintenance maintenance = new Maintenance();
+
     private Configuration configuration = Configuration.getInstance();
 
 	public RegRobot(IMailDelivery delivery, MailPool mailPool, int number) {
@@ -42,7 +37,7 @@ public class RegRobot extends Robot {
         this.mailPool = mailPool;
         this.receivedDispatch = false;
         this.deliveryCounter = 0;
-        RegRobot.num_RR++;
+        maintenance.addNum();
 	}
 	
 	public void dispatch() {
@@ -77,12 +72,7 @@ public class RegRobot extends Robot {
                     /** Delivery complete, report this to the simulator! */
     				
                     //get service fee
-                    if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
-                        serviceFee = new ServiceFee(
-                                Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
-                        rServiceFee = serviceFee.retrieveServiceFee(destination_floor);
-                    }
-    				
+                    getServiceFee();
                     delivery.deliver(this, deliveryItem, additionalLog());
                     deliveryItem = null;
                     deliveryCounter++;
@@ -118,12 +108,12 @@ public class RegRobot extends Robot {
      * @param destination the floor towards which the robot is moving
      */
     void moveTowards(int destination) {
+        maintenance.addUnitCounter();
         if(current_floor < destination) {
             current_floor++;
         } else {
             current_floor--;
         }
-        RegRobot.unitCounter_R++;
     }
     
     public String getIdTube() {
@@ -165,22 +155,33 @@ public class RegRobot extends Robot {
 		if (tube.weight > INDIVIDUAL_MAX_WEIGHT) throw new ItemTooHeavyException();
 	}
 
+	public void getServiceFee(){
+        if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
+            serviceFee = new ServiceFee(
+                    Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+            rServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+        }
+    }
+
     /**
      * implement a new method to print out the additionalLog in the console
      * including the service fee, average time and maintain fee of each type
      * of robots.
      *
      */
+
+    public double getTotal(){
+        double total = rServiceFee + maintenance.getMaintenanceFee(R_BASE_RATE);
+        return total;
+    }
+
     public String additionalLog() {
         boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
         /* calculate the required INFO*/
-        RegRobot.avgTime_R = (float)RegRobot.unitCounter_R / (float)RegRobot.num_RR;
-        RegRobot.maintainFee_R = RegRobot.avgTime_R* R_BASE_RATE ;
-        double total = rServiceFee + RegRobot.maintainFee_R;
         if (feeCharging) {
             return String.format(
                     " | Service Fee:  %.2f | Maintenance:  %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f",
-                    rServiceFee, RegRobot.maintainFee_R, RegRobot.avgTime_R, total);
+                    rServiceFee, maintenance.getMaintenanceFee(R_BASE_RATE), maintenance.getAvgTime(), getTotal());
         }
         else
             return String.format("");

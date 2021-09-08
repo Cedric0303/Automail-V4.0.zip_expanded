@@ -25,8 +25,7 @@ public class Building
     }
 
     public static Building getInstance() {
-        if(building == null)
-        {
+        if(building == null) {
             Configuration configuration = Configuration.getInstance();
             int nFloors = Integer.parseInt(configuration.getProperty(Configuration.N_FLOORS_KEY));
             int lowestFloor = Integer.parseInt(configuration.getProperty(Configuration.LOWEST_FLOOR_KEY));
