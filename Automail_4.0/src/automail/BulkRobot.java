@@ -27,9 +27,9 @@ public class BulkRobot extends Robot {
     private int deliveryCounter;
     
     private double bServiceFee;
-    private ServiceFee serviceFee;
+    private static Charge charge = new Charge();
 
-    private static Maintenance maintenance = new Maintenance();
+    //private static Maintenance maintenance = new Maintenance();
     private Configuration configuration = Configuration.getInstance();
     
 	public BulkRobot(IMailDelivery delivery, MailPool mailPool, int number) {
@@ -43,7 +43,7 @@ public class BulkRobot extends Robot {
         this.tube = new Stack<MailItem>();
         this.deliveryCounter = 0;
 
-        maintenance.addNum();
+        charge.addNum();
 	}
 
 	public void dispatch() {
@@ -59,6 +59,8 @@ public class BulkRobot extends Robot {
         			/** Tell the sorter the robot is ready */
         			mailPool.registerWaiting(this);
                 	changeState(RobotState.WAITING);
+                    charge.addUnitCounter();
+
                 } else {
                 	/** If the robot is not at the mailroom floor yet, then move towards it! */
                     moveTowards(Building.getInstance().getMailroomLocationFloor());
@@ -68,7 +70,7 @@ public class BulkRobot extends Robot {
                 /** If the StorageTube is ready and the Robot is waiting in the mailroom then start the delivery */
                 if (!isEmpty() && receivedDispatch) {
                 	receivedDispatch = false;
-                	deliveryItem = tube.pop();
+                	deliveryItem = tube.peek();
                 	deliveryCounter = 0; // reset delivery counter
                 	setDestination();
                 	changeState(RobotState.DELIVERING);
@@ -77,10 +79,11 @@ public class BulkRobot extends Robot {
     		case DELIVERING:
     			if(current_floor == destination_floor) { // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
-    				
+                    charge.addUnitCounter();
                     deliveryCounter++;
                     //get service fee
                     getServiceFee();
+                    tube.pop();
                     delivery.deliver(this, deliveryItem, additionalLog());
                     deliveryItem = null;
                     
@@ -93,7 +96,7 @@ public class BulkRobot extends Robot {
                     }
                     else if (tube.size() > 0) {
                         /** If there is another item, set the robot's route to the location to deliver the item */
-                        deliveryItem = tube.pop();
+                        deliveryItem = tube.peek();
                         setDestination();
                         changeState(RobotState.DELIVERING);
                     }
@@ -115,7 +118,7 @@ public class BulkRobot extends Robot {
      * @param destination the floor towards which the robot is moving
      */
     void moveTowards(int destination) {
-        maintenance.addUnitCounter();
+        charge.addUnitCounter();
         if(current_floor < destination) {
             current_floor++;
         } else {
@@ -124,7 +127,7 @@ public class BulkRobot extends Robot {
     }
     
     public String getIdTube() {
-    	return String.format("%s(%1d)", this.id, tube.size() + (deliveryItem == null ? 0 : 1));
+    	return String.format("%s(%1d)", this.id, tube.size());
     }
     
     /**
@@ -169,14 +172,14 @@ public class BulkRobot extends Robot {
 
     public void getServiceFee(){
         if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
-            serviceFee = new ServiceFee(
-                    Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
-            bServiceFee = serviceFee.retrieveServiceFee(destination_floor) * deliveryCounter;
+            //charge = new Charge(
+                    //Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+            bServiceFee = charge.retrieveServiceFee(destination_floor) * deliveryCounter;
         }
     }
 
     public double getTotal(){
-        double total = bServiceFee + maintenance.getMaintenanceFee(B_BASE_RATE);
+        double total = bServiceFee + charge.getMaintenanceFee(B_BASE_RATE);
         return total;
     }
 
@@ -185,7 +188,7 @@ public class BulkRobot extends Robot {
         if (feeCharging) {
             return String.format(
                     " | Service Fee:  %.2f | Maintenance:  %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f",
-                    bServiceFee, maintenance.getMaintenanceFee(B_BASE_RATE), maintenance.getAvgTime(), getTotal());
+                    bServiceFee, charge.getMaintenanceFee(B_BASE_RATE), charge.getAvgTime(), getTotal());
         }
         else
             return String.format("");

@@ -22,10 +22,10 @@ public class FastRobot extends Robot {
     private MailItem deliveryItem = null;
     
     private int deliveryCounter;
-	private static Maintenance maintenance = new Maintenance();
+	//private static Maintenance maintenance = new Maintenance();
 
     private double fServiceFee;
-    private ServiceFee serviceFee;
+    private static Charge charge = new Charge();
     private Configuration configuration = Configuration.getInstance();
     
 	public FastRobot(IMailDelivery delivery, MailPool mailPool, int number) {
@@ -37,7 +37,7 @@ public class FastRobot extends Robot {
         this.mailPool = mailPool;
         this.receivedDispatch = false;
         this.deliveryCounter = 0;
-		maintenance.addNum();
+		charge.addNum();
 	}
 	
 	public void dispatch() {
@@ -53,7 +53,8 @@ public class FastRobot extends Robot {
         			/** Tell the sorter the robot is ready */
         			mailPool.registerWaiting(this);
                 	changeState(RobotState.WAITING);
-                } else {
+					charge.addUnitCounter();
+				} else {
                 	/** If the robot is not at the mailroom floor yet, then move towards it! */
                     moveTowards(Building.getInstance().getMailroomLocationFloor());
                 	break;
@@ -70,7 +71,7 @@ public class FastRobot extends Robot {
     		case DELIVERING:
     			if(current_floor == destination_floor) { // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
-    				
+					charge.addUnitCounter();
     				//get service fee
 					getServiceFee();
                     delivery.deliver(this, deliveryItem, additionalLog());
@@ -101,6 +102,7 @@ public class FastRobot extends Robot {
      * @param destination the floor towards which the robot is moving
      */
     void moveTowards(int destination) {
+		charge.addUnitCounter();
     	int distance = Math.abs(destination - current_floor);
     	if (distance <= INDIVIDUAL_MAX_MOVE_SPEED) {
     		current_floor = destination;
@@ -110,7 +112,7 @@ public class FastRobot extends Robot {
         } else {
     		current_floor -= INDIVIDUAL_MAX_MOVE_SPEED;
         }
-		maintenance.addUnitCounter();
+
     }
     
     public String getIdTube() {
@@ -149,9 +151,9 @@ public class FastRobot extends Robot {
 	}
 	public void getServiceFee(){
 		if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
-			serviceFee = new ServiceFee(
-					Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
-			fServiceFee = serviceFee.retrieveServiceFee(destination_floor);
+			//charge = new Charge(
+					//Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+			fServiceFee = charge.retrieveServiceFee(destination_floor);
 		}
 
 	}
@@ -162,7 +164,7 @@ public class FastRobot extends Robot {
 	 *
 	 */
 	public double getTotal(){
-		double total = fServiceFee + maintenance.getMaintenanceFee(F_BASE_RATE);
+		double total = fServiceFee + charge.getMaintenanceFee(F_BASE_RATE);
 		return total;
 	}
 
@@ -172,7 +174,7 @@ public class FastRobot extends Robot {
 		if (feeCharging) {
 			return String.format(
 					" | Service Fee:  %.2f | Maintenance:  %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f",
-					fServiceFee, maintenance.getMaintenanceFee(F_BASE_RATE), maintenance.getAvgTime(), getTotal());
+					fServiceFee, charge.getMaintenanceFee(F_BASE_RATE), charge.getAvgTime(), getTotal());
 		}
 		else
 			return String.format("");
