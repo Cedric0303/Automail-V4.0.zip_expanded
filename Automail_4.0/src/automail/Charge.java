@@ -6,16 +6,16 @@ import com.unimelb.swen30006.wifimodem.WifiModem;
 import util.Configuration;
 
 public class Charge {
-	private HashMap<Integer, Double> latestServiceFee = new HashMap<Integer, Double>();
+	private static HashMap<Integer, Double> latestServiceFee = new HashMap<Integer, Double>();
 	private WifiModem wifiModem;
 	private Configuration configuration = Configuration.getInstance();
 	private int initial_floor = Integer.parseInt(this.configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY));
 	private double sf;
 
-	private  int unitCounter;
-	private  double maintenanceFee;
-	private  int num;
-	private  double avgTime;
+	private int unitCounter;
+	private double maintenanceFee;
+	private int num;
+	private double avgTime;
 
 	/**
 	 * forwardCallToAPI_LookupPrice(onFloor: int) -> the service fee

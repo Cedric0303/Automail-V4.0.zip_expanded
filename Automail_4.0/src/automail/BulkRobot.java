@@ -127,7 +127,8 @@ public class BulkRobot extends Robot {
     }
     
     public String getIdTube() {
-    	return String.format("%s(%1d)", this.id, tube.size());
+            return String.format("%s(%1d)", this.id, tube.size());
+
     }
     
     /**
@@ -141,6 +142,7 @@ public class BulkRobot extends Robot {
     	}
     	current_state = nextState;
     	if(nextState == RobotState.DELIVERING) {
+
             System.out.printf("T: %3d > %7s-> [%s]%n", Clock.Time(), getIdTube(), deliveryItem.toString());
     	}
     }
@@ -173,8 +175,8 @@ public class BulkRobot extends Robot {
     public void getServiceFee(){
         if (Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY))) {
             //charge = new Charge(
-                    //Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
-            bServiceFee = charge.retrieveServiceFee(destination_floor) * deliveryCounter;
+            //Integer.parseInt(configuration.getProperty(Configuration.MAILROOM_LOCATION_FLOOR_KEY)));
+            bServiceFee = charge.retrieveServiceFee(destination_floor);
         }
     }
 
@@ -187,7 +189,7 @@ public class BulkRobot extends Robot {
         boolean feeCharging = Boolean.parseBoolean(configuration.getProperty(Configuration.FEE_CHARGING_KEY));
         if (feeCharging) {
             return String.format(
-                    " | Service Fee:  %.2f | Maintenance:  %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f",
+                    " | Service Fee: %.2f | Maintenance: %.2f | Avg. Operating Time: %.2f | Total Charge: %.2f",
                     bServiceFee, charge.getMaintenanceFee(B_BASE_RATE), charge.getAvgTime(), getTotal());
         }
         else

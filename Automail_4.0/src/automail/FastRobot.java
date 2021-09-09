@@ -173,7 +173,7 @@ public class FastRobot extends Robot {
 		/* calculate the required INFO*/
 		if (feeCharging) {
 			return String.format(
-					" | Service Fee:  %.2f | Maintenance:  %.2f | Avg. Operating Time:  %.2f | Total Charge:  %.2f",
+					" | Service Fee: %.2f | Maintenance: %.2f | Avg. Operating Time: %.2f | Total Charge: %.2f",
 					fServiceFee, charge.getMaintenanceFee(F_BASE_RATE), charge.getAvgTime(), getTotal());
 		}
 		else
